@@ -631,6 +631,22 @@ func (s *FanboxPostStatus) UnmarshalText(data []byte) error {
 	}
 }
 
+type Get struct {
+	Body OptFanboxPost `json:"body"`
+}
+
+// GetBody returns the value of Body.
+func (s *Get) GetBody() OptFanboxPost {
+	return s.Body
+}
+
+// SetBody sets the value of Body.
+func (s *Get) SetBody(val OptFanboxPost) {
+	s.Body = val
+}
+
+func (*Get) getEditablePostRes() {}
+
 type List struct {
 	Body []FanboxPost `json:"body"`
 }
@@ -1290,22 +1306,6 @@ func (o OptUpdatePostReqStatus) Or(d UpdatePostReqStatus) UpdatePostReqStatus {
 	}
 	return d
 }
-
-type Post struct {
-	Body OptFanboxPost `json:"body"`
-}
-
-// GetBody returns the value of Body.
-func (s *Post) GetBody() OptFanboxPost {
-	return s.Body
-}
-
-// SetBody sets the value of Body.
-func (s *Post) SetBody(val OptFanboxPost) {
-	s.Body = val
-}
-
-func (*Post) getEditablePostRes() {}
 
 type SessionId struct {
 	APIKey string

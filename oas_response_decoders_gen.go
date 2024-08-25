@@ -106,7 +106,7 @@ func decodeGetEditablePostResponse(resp *http.Response) (res GetEditablePostRes,
 			}
 			d := jx.DecodeBytes(buf)
 
-			var response Post
+			var response Get
 			if err := func() error {
 				if err := response.Decode(d); err != nil {
 					return err
