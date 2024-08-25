@@ -1,0 +1,6 @@
+# ref: https://github.com/ogen-go/ogen/blob/main/examples/_config/example_all.yml
+generator:
+  features:
+    disable_all: true
+    enable:
+      - 'paths/client'
