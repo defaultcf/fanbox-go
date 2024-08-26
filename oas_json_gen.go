@@ -85,15 +85,15 @@ func (s *CreateBody) Encode(e *jx.Encoder) {
 // encodeFields encodes fields.
 func (s *CreateBody) encodeFields(e *jx.Encoder) {
 	{
-		if s.PostID.Set {
-			e.FieldStart("post_id")
-			s.PostID.Encode(e)
+		if s.PostId.Set {
+			e.FieldStart("postId")
+			s.PostId.Encode(e)
 		}
 	}
 }
 
 var jsonFieldsNameOfCreateBody = [1]string{
-	0: "post_id",
+	0: "postId",
 }
 
 // Decode decodes CreateBody from json.
@@ -104,15 +104,15 @@ func (s *CreateBody) Decode(d *jx.Decoder) error {
 
 	if err := d.ObjBytes(func(d *jx.Decoder, k []byte) error {
 		switch string(k) {
-		case "post_id":
+		case "postId":
 			if err := func() error {
-				s.PostID.Reset()
-				if err := s.PostID.Decode(d); err != nil {
+				s.PostId.Reset()
+				if err := s.PostId.Decode(d); err != nil {
 					return err
 				}
 				return nil
 			}(); err != nil {
-				return errors.Wrap(err, "decode field \"post_id\"")
+				return errors.Wrap(err, "decode field \"postId\"")
 			}
 		default:
 			return d.Skip()
@@ -1681,7 +1681,7 @@ func (s *PostBodyUrlEmbedMapItem) encodeFields(e *jx.Encoder) {
 	}
 	{
 		if s.PostInfo.Set {
-			e.FieldStart("post_info")
+			e.FieldStart("postInfo")
 			s.PostInfo.Encode(e)
 		}
 	}
@@ -1692,7 +1692,7 @@ var jsonFieldsNameOfPostBodyUrlEmbedMapItem = [5]string{
 	1: "type",
 	2: "html",
 	3: "url",
-	4: "post_info",
+	4: "postInfo",
 }
 
 // Decode decodes PostBodyUrlEmbedMapItem from json.
@@ -1743,7 +1743,7 @@ func (s *PostBodyUrlEmbedMapItem) Decode(d *jx.Decoder) error {
 			}(); err != nil {
 				return errors.Wrap(err, "decode field \"url\"")
 			}
-		case "post_info":
+		case "postInfo":
 			if err := func() error {
 				s.PostInfo.Reset()
 				if err := s.PostInfo.Decode(d); err != nil {
@@ -1751,7 +1751,7 @@ func (s *PostBodyUrlEmbedMapItem) Decode(d *jx.Decoder) error {
 				}
 				return nil
 			}(); err != nil {
-				return errors.Wrap(err, "decode field \"post_info\"")
+				return errors.Wrap(err, "decode field \"postInfo\"")
 			}
 		default:
 			return d.Skip()

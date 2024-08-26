@@ -24,17 +24,17 @@ func (s *Create) SetBody(val OptCreateBody) {
 func (*Create) createPostRes() {}
 
 type CreateBody struct {
-	PostID OptString `json:"post_id"`
+	PostId OptString `json:"postId"`
 }
 
-// GetPostID returns the value of PostID.
-func (s *CreateBody) GetPostID() OptString {
-	return s.PostID
+// GetPostId returns the value of PostId.
+func (s *CreateBody) GetPostId() OptString {
+	return s.PostId
 }
 
-// SetPostID sets the value of PostID.
-func (s *CreateBody) SetPostID(val OptString) {
-	s.PostID = val
+// SetPostId sets the value of PostId.
+func (s *CreateBody) SetPostId(val OptString) {
+	s.PostId = val
 }
 
 type CreatePostBadRequestApplicationJSON jx.Raw
@@ -1133,7 +1133,7 @@ type PostBodyUrlEmbedMapItem struct {
 	Type     OptPostBodyUrlEmbedMapItemType     `json:"type"`
 	HTML     OptString                          `json:"html"`
 	URL      OptString                          `json:"url"`
-	PostInfo OptPostBodyUrlEmbedMapItemPostInfo `json:"post_info"`
+	PostInfo OptPostBodyUrlEmbedMapItemPostInfo `json:"postInfo"`
 }
 
 // GetID returns the value of ID.
