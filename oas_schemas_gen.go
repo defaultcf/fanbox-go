@@ -106,558 +106,33 @@ func (s *CsrfToken) SetAPIKey(val string) {
 	s.APIKey = val
 }
 
-// Ref: #/components/schemas/FanboxPost
-type FanboxPost struct {
-	ID          OptString           `json:"id"`
-	Title       OptString           `json:"title"`
-	Status      OptFanboxPostStatus `json:"status"`
-	Permalink   OptString           `json:"permalink"`
-	FeeRequired OptInt              `json:"feeRequired"`
-	UpdatedAt   OptString           `json:"updatedAt"`
-	PublishedAt OptString           `json:"publishedAt"`
-	Body        OptFanboxPostBody   `json:"body"`
-}
-
-// GetID returns the value of ID.
-func (s *FanboxPost) GetID() OptString {
-	return s.ID
-}
-
-// GetTitle returns the value of Title.
-func (s *FanboxPost) GetTitle() OptString {
-	return s.Title
-}
-
-// GetStatus returns the value of Status.
-func (s *FanboxPost) GetStatus() OptFanboxPostStatus {
-	return s.Status
-}
-
-// GetPermalink returns the value of Permalink.
-func (s *FanboxPost) GetPermalink() OptString {
-	return s.Permalink
-}
-
-// GetFeeRequired returns the value of FeeRequired.
-func (s *FanboxPost) GetFeeRequired() OptInt {
-	return s.FeeRequired
-}
-
-// GetUpdatedAt returns the value of UpdatedAt.
-func (s *FanboxPost) GetUpdatedAt() OptString {
-	return s.UpdatedAt
-}
-
-// GetPublishedAt returns the value of PublishedAt.
-func (s *FanboxPost) GetPublishedAt() OptString {
-	return s.PublishedAt
-}
-
-// GetBody returns the value of Body.
-func (s *FanboxPost) GetBody() OptFanboxPostBody {
-	return s.Body
-}
-
-// SetID sets the value of ID.
-func (s *FanboxPost) SetID(val OptString) {
-	s.ID = val
-}
-
-// SetTitle sets the value of Title.
-func (s *FanboxPost) SetTitle(val OptString) {
-	s.Title = val
-}
-
-// SetStatus sets the value of Status.
-func (s *FanboxPost) SetStatus(val OptFanboxPostStatus) {
-	s.Status = val
-}
-
-// SetPermalink sets the value of Permalink.
-func (s *FanboxPost) SetPermalink(val OptString) {
-	s.Permalink = val
-}
-
-// SetFeeRequired sets the value of FeeRequired.
-func (s *FanboxPost) SetFeeRequired(val OptInt) {
-	s.FeeRequired = val
-}
-
-// SetUpdatedAt sets the value of UpdatedAt.
-func (s *FanboxPost) SetUpdatedAt(val OptString) {
-	s.UpdatedAt = val
-}
-
-// SetPublishedAt sets the value of PublishedAt.
-func (s *FanboxPost) SetPublishedAt(val OptString) {
-	s.PublishedAt = val
-}
-
-// SetBody sets the value of Body.
-func (s *FanboxPost) SetBody(val OptFanboxPostBody) {
-	s.Body = val
-}
-
-type FanboxPostBody struct {
-	Blocks      []FanboxPostBodyBlocksItem   `json:"blocks"`
-	ImageMap    OptFanboxPostBodyImageMap    `json:"imageMap"`
-	UrlEmbedMap OptFanboxPostBodyUrlEmbedMap `json:"urlEmbedMap"`
-}
-
-// GetBlocks returns the value of Blocks.
-func (s *FanboxPostBody) GetBlocks() []FanboxPostBodyBlocksItem {
-	return s.Blocks
-}
-
-// GetImageMap returns the value of ImageMap.
-func (s *FanboxPostBody) GetImageMap() OptFanboxPostBodyImageMap {
-	return s.ImageMap
-}
-
-// GetUrlEmbedMap returns the value of UrlEmbedMap.
-func (s *FanboxPostBody) GetUrlEmbedMap() OptFanboxPostBodyUrlEmbedMap {
-	return s.UrlEmbedMap
-}
-
-// SetBlocks sets the value of Blocks.
-func (s *FanboxPostBody) SetBlocks(val []FanboxPostBodyBlocksItem) {
-	s.Blocks = val
-}
-
-// SetImageMap sets the value of ImageMap.
-func (s *FanboxPostBody) SetImageMap(val OptFanboxPostBodyImageMap) {
-	s.ImageMap = val
-}
-
-// SetUrlEmbedMap sets the value of UrlEmbedMap.
-func (s *FanboxPostBody) SetUrlEmbedMap(val OptFanboxPostBodyUrlEmbedMap) {
-	s.UrlEmbedMap = val
-}
-
-type FanboxPostBodyBlocksItem struct {
-	Type       OptFanboxPostBodyBlocksItemType      `json:"type"`
-	Text       OptString                            `json:"text"`
-	ImageId    OptString                            `json:"imageId"`
-	UrlEmbedId OptString                            `json:"urlEmbedId"`
-	Styles     []FanboxPostBodyBlocksItemStylesItem `json:"styles"`
-}
-
-// GetType returns the value of Type.
-func (s *FanboxPostBodyBlocksItem) GetType() OptFanboxPostBodyBlocksItemType {
-	return s.Type
-}
-
-// GetText returns the value of Text.
-func (s *FanboxPostBodyBlocksItem) GetText() OptString {
-	return s.Text
-}
-
-// GetImageId returns the value of ImageId.
-func (s *FanboxPostBodyBlocksItem) GetImageId() OptString {
-	return s.ImageId
-}
-
-// GetUrlEmbedId returns the value of UrlEmbedId.
-func (s *FanboxPostBodyBlocksItem) GetUrlEmbedId() OptString {
-	return s.UrlEmbedId
-}
-
-// GetStyles returns the value of Styles.
-func (s *FanboxPostBodyBlocksItem) GetStyles() []FanboxPostBodyBlocksItemStylesItem {
-	return s.Styles
-}
-
-// SetType sets the value of Type.
-func (s *FanboxPostBodyBlocksItem) SetType(val OptFanboxPostBodyBlocksItemType) {
-	s.Type = val
-}
-
-// SetText sets the value of Text.
-func (s *FanboxPostBodyBlocksItem) SetText(val OptString) {
-	s.Text = val
-}
-
-// SetImageId sets the value of ImageId.
-func (s *FanboxPostBodyBlocksItem) SetImageId(val OptString) {
-	s.ImageId = val
-}
-
-// SetUrlEmbedId sets the value of UrlEmbedId.
-func (s *FanboxPostBodyBlocksItem) SetUrlEmbedId(val OptString) {
-	s.UrlEmbedId = val
-}
-
-// SetStyles sets the value of Styles.
-func (s *FanboxPostBodyBlocksItem) SetStyles(val []FanboxPostBodyBlocksItemStylesItem) {
-	s.Styles = val
-}
-
-type FanboxPostBodyBlocksItemStylesItem struct {
-	Type   OptString `json:"type"`
-	Offset OptInt    `json:"offset"`
-	Length OptInt    `json:"length"`
-}
-
-// GetType returns the value of Type.
-func (s *FanboxPostBodyBlocksItemStylesItem) GetType() OptString {
-	return s.Type
-}
-
-// GetOffset returns the value of Offset.
-func (s *FanboxPostBodyBlocksItemStylesItem) GetOffset() OptInt {
-	return s.Offset
-}
-
-// GetLength returns the value of Length.
-func (s *FanboxPostBodyBlocksItemStylesItem) GetLength() OptInt {
-	return s.Length
-}
-
-// SetType sets the value of Type.
-func (s *FanboxPostBodyBlocksItemStylesItem) SetType(val OptString) {
-	s.Type = val
-}
-
-// SetOffset sets the value of Offset.
-func (s *FanboxPostBodyBlocksItemStylesItem) SetOffset(val OptInt) {
-	s.Offset = val
-}
-
-// SetLength sets the value of Length.
-func (s *FanboxPostBodyBlocksItemStylesItem) SetLength(val OptInt) {
-	s.Length = val
-}
-
-type FanboxPostBodyBlocksItemType string
-
-const (
-	FanboxPostBodyBlocksItemTypeP        FanboxPostBodyBlocksItemType = "p"
-	FanboxPostBodyBlocksItemTypeHeader   FanboxPostBodyBlocksItemType = "header"
-	FanboxPostBodyBlocksItemTypeImage    FanboxPostBodyBlocksItemType = "image"
-	FanboxPostBodyBlocksItemTypeURLEmbed FanboxPostBodyBlocksItemType = "url_embed"
-)
-
-// AllValues returns all FanboxPostBodyBlocksItemType values.
-func (FanboxPostBodyBlocksItemType) AllValues() []FanboxPostBodyBlocksItemType {
-	return []FanboxPostBodyBlocksItemType{
-		FanboxPostBodyBlocksItemTypeP,
-		FanboxPostBodyBlocksItemTypeHeader,
-		FanboxPostBodyBlocksItemTypeImage,
-		FanboxPostBodyBlocksItemTypeURLEmbed,
-	}
-}
-
-// MarshalText implements encoding.TextMarshaler.
-func (s FanboxPostBodyBlocksItemType) MarshalText() ([]byte, error) {
-	switch s {
-	case FanboxPostBodyBlocksItemTypeP:
-		return []byte(s), nil
-	case FanboxPostBodyBlocksItemTypeHeader:
-		return []byte(s), nil
-	case FanboxPostBodyBlocksItemTypeImage:
-		return []byte(s), nil
-	case FanboxPostBodyBlocksItemTypeURLEmbed:
-		return []byte(s), nil
-	default:
-		return nil, errors.Errorf("invalid value: %q", s)
-	}
-}
-
-// UnmarshalText implements encoding.TextUnmarshaler.
-func (s *FanboxPostBodyBlocksItemType) UnmarshalText(data []byte) error {
-	switch FanboxPostBodyBlocksItemType(data) {
-	case FanboxPostBodyBlocksItemTypeP:
-		*s = FanboxPostBodyBlocksItemTypeP
-		return nil
-	case FanboxPostBodyBlocksItemTypeHeader:
-		*s = FanboxPostBodyBlocksItemTypeHeader
-		return nil
-	case FanboxPostBodyBlocksItemTypeImage:
-		*s = FanboxPostBodyBlocksItemTypeImage
-		return nil
-	case FanboxPostBodyBlocksItemTypeURLEmbed:
-		*s = FanboxPostBodyBlocksItemTypeURLEmbed
-		return nil
-	default:
-		return errors.Errorf("invalid value: %q", data)
-	}
-}
-
-type FanboxPostBodyImageMap map[string]FanboxPostBodyImageMapItem
-
-func (s *FanboxPostBodyImageMap) init() FanboxPostBodyImageMap {
-	m := *s
-	if m == nil {
-		m = map[string]FanboxPostBodyImageMapItem{}
-		*s = m
-	}
-	return m
-}
-
-type FanboxPostBodyImageMapItem struct {
-	ID           OptString `json:"id"`
-	Extension    OptString `json:"extension"`
-	OriginalUrl  OptString `json:"originalUrl"`
-	ThumbnailUrl OptString `json:"thumbnailUrl"`
-}
-
-// GetID returns the value of ID.
-func (s *FanboxPostBodyImageMapItem) GetID() OptString {
-	return s.ID
-}
-
-// GetExtension returns the value of Extension.
-func (s *FanboxPostBodyImageMapItem) GetExtension() OptString {
-	return s.Extension
-}
-
-// GetOriginalUrl returns the value of OriginalUrl.
-func (s *FanboxPostBodyImageMapItem) GetOriginalUrl() OptString {
-	return s.OriginalUrl
-}
-
-// GetThumbnailUrl returns the value of ThumbnailUrl.
-func (s *FanboxPostBodyImageMapItem) GetThumbnailUrl() OptString {
-	return s.ThumbnailUrl
-}
-
-// SetID sets the value of ID.
-func (s *FanboxPostBodyImageMapItem) SetID(val OptString) {
-	s.ID = val
-}
-
-// SetExtension sets the value of Extension.
-func (s *FanboxPostBodyImageMapItem) SetExtension(val OptString) {
-	s.Extension = val
-}
-
-// SetOriginalUrl sets the value of OriginalUrl.
-func (s *FanboxPostBodyImageMapItem) SetOriginalUrl(val OptString) {
-	s.OriginalUrl = val
-}
-
-// SetThumbnailUrl sets the value of ThumbnailUrl.
-func (s *FanboxPostBodyImageMapItem) SetThumbnailUrl(val OptString) {
-	s.ThumbnailUrl = val
-}
-
-type FanboxPostBodyUrlEmbedMap map[string]FanboxPostBodyUrlEmbedMapItem
-
-func (s *FanboxPostBodyUrlEmbedMap) init() FanboxPostBodyUrlEmbedMap {
-	m := *s
-	if m == nil {
-		m = map[string]FanboxPostBodyUrlEmbedMapItem{}
-		*s = m
-	}
-	return m
-}
-
-type FanboxPostBodyUrlEmbedMapItem struct {
-	ID       OptString                                `json:"id"`
-	Type     OptFanboxPostBodyUrlEmbedMapItemType     `json:"type"`
-	HTML     OptString                                `json:"html"`
-	URL      OptString                                `json:"url"`
-	PostInfo OptFanboxPostBodyUrlEmbedMapItemPostInfo `json:"post_info"`
-}
-
-// GetID returns the value of ID.
-func (s *FanboxPostBodyUrlEmbedMapItem) GetID() OptString {
-	return s.ID
-}
-
-// GetType returns the value of Type.
-func (s *FanboxPostBodyUrlEmbedMapItem) GetType() OptFanboxPostBodyUrlEmbedMapItemType {
-	return s.Type
-}
-
-// GetHTML returns the value of HTML.
-func (s *FanboxPostBodyUrlEmbedMapItem) GetHTML() OptString {
-	return s.HTML
-}
-
-// GetURL returns the value of URL.
-func (s *FanboxPostBodyUrlEmbedMapItem) GetURL() OptString {
-	return s.URL
-}
-
-// GetPostInfo returns the value of PostInfo.
-func (s *FanboxPostBodyUrlEmbedMapItem) GetPostInfo() OptFanboxPostBodyUrlEmbedMapItemPostInfo {
-	return s.PostInfo
-}
-
-// SetID sets the value of ID.
-func (s *FanboxPostBodyUrlEmbedMapItem) SetID(val OptString) {
-	s.ID = val
-}
-
-// SetType sets the value of Type.
-func (s *FanboxPostBodyUrlEmbedMapItem) SetType(val OptFanboxPostBodyUrlEmbedMapItemType) {
-	s.Type = val
-}
-
-// SetHTML sets the value of HTML.
-func (s *FanboxPostBodyUrlEmbedMapItem) SetHTML(val OptString) {
-	s.HTML = val
-}
-
-// SetURL sets the value of URL.
-func (s *FanboxPostBodyUrlEmbedMapItem) SetURL(val OptString) {
-	s.URL = val
-}
-
-// SetPostInfo sets the value of PostInfo.
-func (s *FanboxPostBodyUrlEmbedMapItem) SetPostInfo(val OptFanboxPostBodyUrlEmbedMapItemPostInfo) {
-	s.PostInfo = val
-}
-
-type FanboxPostBodyUrlEmbedMapItemPostInfo struct {
-	ID        OptString `json:"id"`
-	CreatorId OptString `json:"creatorId"`
-}
-
-// GetID returns the value of ID.
-func (s *FanboxPostBodyUrlEmbedMapItemPostInfo) GetID() OptString {
-	return s.ID
-}
-
-// GetCreatorId returns the value of CreatorId.
-func (s *FanboxPostBodyUrlEmbedMapItemPostInfo) GetCreatorId() OptString {
-	return s.CreatorId
-}
-
-// SetID sets the value of ID.
-func (s *FanboxPostBodyUrlEmbedMapItemPostInfo) SetID(val OptString) {
-	s.ID = val
-}
-
-// SetCreatorId sets the value of CreatorId.
-func (s *FanboxPostBodyUrlEmbedMapItemPostInfo) SetCreatorId(val OptString) {
-	s.CreatorId = val
-}
-
-type FanboxPostBodyUrlEmbedMapItemType string
-
-const (
-	FanboxPostBodyUrlEmbedMapItemTypeHTMLCard   FanboxPostBodyUrlEmbedMapItemType = "html.card"
-	FanboxPostBodyUrlEmbedMapItemTypeHTML       FanboxPostBodyUrlEmbedMapItemType = "html"
-	FanboxPostBodyUrlEmbedMapItemTypeFanboxPost FanboxPostBodyUrlEmbedMapItemType = "fanbox.post"
-	FanboxPostBodyUrlEmbedMapItemTypeDefault    FanboxPostBodyUrlEmbedMapItemType = "default"
-)
-
-// AllValues returns all FanboxPostBodyUrlEmbedMapItemType values.
-func (FanboxPostBodyUrlEmbedMapItemType) AllValues() []FanboxPostBodyUrlEmbedMapItemType {
-	return []FanboxPostBodyUrlEmbedMapItemType{
-		FanboxPostBodyUrlEmbedMapItemTypeHTMLCard,
-		FanboxPostBodyUrlEmbedMapItemTypeHTML,
-		FanboxPostBodyUrlEmbedMapItemTypeFanboxPost,
-		FanboxPostBodyUrlEmbedMapItemTypeDefault,
-	}
-}
-
-// MarshalText implements encoding.TextMarshaler.
-func (s FanboxPostBodyUrlEmbedMapItemType) MarshalText() ([]byte, error) {
-	switch s {
-	case FanboxPostBodyUrlEmbedMapItemTypeHTMLCard:
-		return []byte(s), nil
-	case FanboxPostBodyUrlEmbedMapItemTypeHTML:
-		return []byte(s), nil
-	case FanboxPostBodyUrlEmbedMapItemTypeFanboxPost:
-		return []byte(s), nil
-	case FanboxPostBodyUrlEmbedMapItemTypeDefault:
-		return []byte(s), nil
-	default:
-		return nil, errors.Errorf("invalid value: %q", s)
-	}
-}
-
-// UnmarshalText implements encoding.TextUnmarshaler.
-func (s *FanboxPostBodyUrlEmbedMapItemType) UnmarshalText(data []byte) error {
-	switch FanboxPostBodyUrlEmbedMapItemType(data) {
-	case FanboxPostBodyUrlEmbedMapItemTypeHTMLCard:
-		*s = FanboxPostBodyUrlEmbedMapItemTypeHTMLCard
-		return nil
-	case FanboxPostBodyUrlEmbedMapItemTypeHTML:
-		*s = FanboxPostBodyUrlEmbedMapItemTypeHTML
-		return nil
-	case FanboxPostBodyUrlEmbedMapItemTypeFanboxPost:
-		*s = FanboxPostBodyUrlEmbedMapItemTypeFanboxPost
-		return nil
-	case FanboxPostBodyUrlEmbedMapItemTypeDefault:
-		*s = FanboxPostBodyUrlEmbedMapItemTypeDefault
-		return nil
-	default:
-		return errors.Errorf("invalid value: %q", data)
-	}
-}
-
-type FanboxPostStatus string
-
-const (
-	FanboxPostStatusDraft     FanboxPostStatus = "draft"
-	FanboxPostStatusPublished FanboxPostStatus = "published"
-)
-
-// AllValues returns all FanboxPostStatus values.
-func (FanboxPostStatus) AllValues() []FanboxPostStatus {
-	return []FanboxPostStatus{
-		FanboxPostStatusDraft,
-		FanboxPostStatusPublished,
-	}
-}
-
-// MarshalText implements encoding.TextMarshaler.
-func (s FanboxPostStatus) MarshalText() ([]byte, error) {
-	switch s {
-	case FanboxPostStatusDraft:
-		return []byte(s), nil
-	case FanboxPostStatusPublished:
-		return []byte(s), nil
-	default:
-		return nil, errors.Errorf("invalid value: %q", s)
-	}
-}
-
-// UnmarshalText implements encoding.TextUnmarshaler.
-func (s *FanboxPostStatus) UnmarshalText(data []byte) error {
-	switch FanboxPostStatus(data) {
-	case FanboxPostStatusDraft:
-		*s = FanboxPostStatusDraft
-		return nil
-	case FanboxPostStatusPublished:
-		*s = FanboxPostStatusPublished
-		return nil
-	default:
-		return errors.Errorf("invalid value: %q", data)
-	}
-}
-
 type Get struct {
-	Body OptFanboxPost `json:"body"`
+	Body OptPost `json:"body"`
 }
 
 // GetBody returns the value of Body.
-func (s *Get) GetBody() OptFanboxPost {
+func (s *Get) GetBody() OptPost {
 	return s.Body
 }
 
 // SetBody sets the value of Body.
-func (s *Get) SetBody(val OptFanboxPost) {
+func (s *Get) SetBody(val OptPost) {
 	s.Body = val
 }
 
 func (*Get) getEditablePostRes() {}
 
 type List struct {
-	Body []FanboxPost `json:"body"`
+	Body []Post `json:"body"`
 }
 
 // GetBody returns the value of Body.
-func (s *List) GetBody() []FanboxPost {
+func (s *List) GetBody() []Post {
 	return s.Body
 }
 
 // SetBody sets the value of Body.
-func (s *List) SetBody(val []FanboxPost) {
+func (s *List) SetBody(val []Post) {
 	s.Body = val
 }
 
@@ -755,374 +230,6 @@ func (o OptCreatePostReq) Or(d CreatePostReq) CreatePostReq {
 	return d
 }
 
-// NewOptFanboxPost returns new OptFanboxPost with value set to v.
-func NewOptFanboxPost(v FanboxPost) OptFanboxPost {
-	return OptFanboxPost{
-		Value: v,
-		Set:   true,
-	}
-}
-
-// OptFanboxPost is optional FanboxPost.
-type OptFanboxPost struct {
-	Value FanboxPost
-	Set   bool
-}
-
-// IsSet returns true if OptFanboxPost was set.
-func (o OptFanboxPost) IsSet() bool { return o.Set }
-
-// Reset unsets value.
-func (o *OptFanboxPost) Reset() {
-	var v FanboxPost
-	o.Value = v
-	o.Set = false
-}
-
-// SetTo sets value to v.
-func (o *OptFanboxPost) SetTo(v FanboxPost) {
-	o.Set = true
-	o.Value = v
-}
-
-// Get returns value and boolean that denotes whether value was set.
-func (o OptFanboxPost) Get() (v FanboxPost, ok bool) {
-	if !o.Set {
-		return v, false
-	}
-	return o.Value, true
-}
-
-// Or returns value if set, or given parameter if does not.
-func (o OptFanboxPost) Or(d FanboxPost) FanboxPost {
-	if v, ok := o.Get(); ok {
-		return v
-	}
-	return d
-}
-
-// NewOptFanboxPostBody returns new OptFanboxPostBody with value set to v.
-func NewOptFanboxPostBody(v FanboxPostBody) OptFanboxPostBody {
-	return OptFanboxPostBody{
-		Value: v,
-		Set:   true,
-	}
-}
-
-// OptFanboxPostBody is optional FanboxPostBody.
-type OptFanboxPostBody struct {
-	Value FanboxPostBody
-	Set   bool
-}
-
-// IsSet returns true if OptFanboxPostBody was set.
-func (o OptFanboxPostBody) IsSet() bool { return o.Set }
-
-// Reset unsets value.
-func (o *OptFanboxPostBody) Reset() {
-	var v FanboxPostBody
-	o.Value = v
-	o.Set = false
-}
-
-// SetTo sets value to v.
-func (o *OptFanboxPostBody) SetTo(v FanboxPostBody) {
-	o.Set = true
-	o.Value = v
-}
-
-// Get returns value and boolean that denotes whether value was set.
-func (o OptFanboxPostBody) Get() (v FanboxPostBody, ok bool) {
-	if !o.Set {
-		return v, false
-	}
-	return o.Value, true
-}
-
-// Or returns value if set, or given parameter if does not.
-func (o OptFanboxPostBody) Or(d FanboxPostBody) FanboxPostBody {
-	if v, ok := o.Get(); ok {
-		return v
-	}
-	return d
-}
-
-// NewOptFanboxPostBodyBlocksItemType returns new OptFanboxPostBodyBlocksItemType with value set to v.
-func NewOptFanboxPostBodyBlocksItemType(v FanboxPostBodyBlocksItemType) OptFanboxPostBodyBlocksItemType {
-	return OptFanboxPostBodyBlocksItemType{
-		Value: v,
-		Set:   true,
-	}
-}
-
-// OptFanboxPostBodyBlocksItemType is optional FanboxPostBodyBlocksItemType.
-type OptFanboxPostBodyBlocksItemType struct {
-	Value FanboxPostBodyBlocksItemType
-	Set   bool
-}
-
-// IsSet returns true if OptFanboxPostBodyBlocksItemType was set.
-func (o OptFanboxPostBodyBlocksItemType) IsSet() bool { return o.Set }
-
-// Reset unsets value.
-func (o *OptFanboxPostBodyBlocksItemType) Reset() {
-	var v FanboxPostBodyBlocksItemType
-	o.Value = v
-	o.Set = false
-}
-
-// SetTo sets value to v.
-func (o *OptFanboxPostBodyBlocksItemType) SetTo(v FanboxPostBodyBlocksItemType) {
-	o.Set = true
-	o.Value = v
-}
-
-// Get returns value and boolean that denotes whether value was set.
-func (o OptFanboxPostBodyBlocksItemType) Get() (v FanboxPostBodyBlocksItemType, ok bool) {
-	if !o.Set {
-		return v, false
-	}
-	return o.Value, true
-}
-
-// Or returns value if set, or given parameter if does not.
-func (o OptFanboxPostBodyBlocksItemType) Or(d FanboxPostBodyBlocksItemType) FanboxPostBodyBlocksItemType {
-	if v, ok := o.Get(); ok {
-		return v
-	}
-	return d
-}
-
-// NewOptFanboxPostBodyImageMap returns new OptFanboxPostBodyImageMap with value set to v.
-func NewOptFanboxPostBodyImageMap(v FanboxPostBodyImageMap) OptFanboxPostBodyImageMap {
-	return OptFanboxPostBodyImageMap{
-		Value: v,
-		Set:   true,
-	}
-}
-
-// OptFanboxPostBodyImageMap is optional FanboxPostBodyImageMap.
-type OptFanboxPostBodyImageMap struct {
-	Value FanboxPostBodyImageMap
-	Set   bool
-}
-
-// IsSet returns true if OptFanboxPostBodyImageMap was set.
-func (o OptFanboxPostBodyImageMap) IsSet() bool { return o.Set }
-
-// Reset unsets value.
-func (o *OptFanboxPostBodyImageMap) Reset() {
-	var v FanboxPostBodyImageMap
-	o.Value = v
-	o.Set = false
-}
-
-// SetTo sets value to v.
-func (o *OptFanboxPostBodyImageMap) SetTo(v FanboxPostBodyImageMap) {
-	o.Set = true
-	o.Value = v
-}
-
-// Get returns value and boolean that denotes whether value was set.
-func (o OptFanboxPostBodyImageMap) Get() (v FanboxPostBodyImageMap, ok bool) {
-	if !o.Set {
-		return v, false
-	}
-	return o.Value, true
-}
-
-// Or returns value if set, or given parameter if does not.
-func (o OptFanboxPostBodyImageMap) Or(d FanboxPostBodyImageMap) FanboxPostBodyImageMap {
-	if v, ok := o.Get(); ok {
-		return v
-	}
-	return d
-}
-
-// NewOptFanboxPostBodyUrlEmbedMap returns new OptFanboxPostBodyUrlEmbedMap with value set to v.
-func NewOptFanboxPostBodyUrlEmbedMap(v FanboxPostBodyUrlEmbedMap) OptFanboxPostBodyUrlEmbedMap {
-	return OptFanboxPostBodyUrlEmbedMap{
-		Value: v,
-		Set:   true,
-	}
-}
-
-// OptFanboxPostBodyUrlEmbedMap is optional FanboxPostBodyUrlEmbedMap.
-type OptFanboxPostBodyUrlEmbedMap struct {
-	Value FanboxPostBodyUrlEmbedMap
-	Set   bool
-}
-
-// IsSet returns true if OptFanboxPostBodyUrlEmbedMap was set.
-func (o OptFanboxPostBodyUrlEmbedMap) IsSet() bool { return o.Set }
-
-// Reset unsets value.
-func (o *OptFanboxPostBodyUrlEmbedMap) Reset() {
-	var v FanboxPostBodyUrlEmbedMap
-	o.Value = v
-	o.Set = false
-}
-
-// SetTo sets value to v.
-func (o *OptFanboxPostBodyUrlEmbedMap) SetTo(v FanboxPostBodyUrlEmbedMap) {
-	o.Set = true
-	o.Value = v
-}
-
-// Get returns value and boolean that denotes whether value was set.
-func (o OptFanboxPostBodyUrlEmbedMap) Get() (v FanboxPostBodyUrlEmbedMap, ok bool) {
-	if !o.Set {
-		return v, false
-	}
-	return o.Value, true
-}
-
-// Or returns value if set, or given parameter if does not.
-func (o OptFanboxPostBodyUrlEmbedMap) Or(d FanboxPostBodyUrlEmbedMap) FanboxPostBodyUrlEmbedMap {
-	if v, ok := o.Get(); ok {
-		return v
-	}
-	return d
-}
-
-// NewOptFanboxPostBodyUrlEmbedMapItemPostInfo returns new OptFanboxPostBodyUrlEmbedMapItemPostInfo with value set to v.
-func NewOptFanboxPostBodyUrlEmbedMapItemPostInfo(v FanboxPostBodyUrlEmbedMapItemPostInfo) OptFanboxPostBodyUrlEmbedMapItemPostInfo {
-	return OptFanboxPostBodyUrlEmbedMapItemPostInfo{
-		Value: v,
-		Set:   true,
-	}
-}
-
-// OptFanboxPostBodyUrlEmbedMapItemPostInfo is optional FanboxPostBodyUrlEmbedMapItemPostInfo.
-type OptFanboxPostBodyUrlEmbedMapItemPostInfo struct {
-	Value FanboxPostBodyUrlEmbedMapItemPostInfo
-	Set   bool
-}
-
-// IsSet returns true if OptFanboxPostBodyUrlEmbedMapItemPostInfo was set.
-func (o OptFanboxPostBodyUrlEmbedMapItemPostInfo) IsSet() bool { return o.Set }
-
-// Reset unsets value.
-func (o *OptFanboxPostBodyUrlEmbedMapItemPostInfo) Reset() {
-	var v FanboxPostBodyUrlEmbedMapItemPostInfo
-	o.Value = v
-	o.Set = false
-}
-
-// SetTo sets value to v.
-func (o *OptFanboxPostBodyUrlEmbedMapItemPostInfo) SetTo(v FanboxPostBodyUrlEmbedMapItemPostInfo) {
-	o.Set = true
-	o.Value = v
-}
-
-// Get returns value and boolean that denotes whether value was set.
-func (o OptFanboxPostBodyUrlEmbedMapItemPostInfo) Get() (v FanboxPostBodyUrlEmbedMapItemPostInfo, ok bool) {
-	if !o.Set {
-		return v, false
-	}
-	return o.Value, true
-}
-
-// Or returns value if set, or given parameter if does not.
-func (o OptFanboxPostBodyUrlEmbedMapItemPostInfo) Or(d FanboxPostBodyUrlEmbedMapItemPostInfo) FanboxPostBodyUrlEmbedMapItemPostInfo {
-	if v, ok := o.Get(); ok {
-		return v
-	}
-	return d
-}
-
-// NewOptFanboxPostBodyUrlEmbedMapItemType returns new OptFanboxPostBodyUrlEmbedMapItemType with value set to v.
-func NewOptFanboxPostBodyUrlEmbedMapItemType(v FanboxPostBodyUrlEmbedMapItemType) OptFanboxPostBodyUrlEmbedMapItemType {
-	return OptFanboxPostBodyUrlEmbedMapItemType{
-		Value: v,
-		Set:   true,
-	}
-}
-
-// OptFanboxPostBodyUrlEmbedMapItemType is optional FanboxPostBodyUrlEmbedMapItemType.
-type OptFanboxPostBodyUrlEmbedMapItemType struct {
-	Value FanboxPostBodyUrlEmbedMapItemType
-	Set   bool
-}
-
-// IsSet returns true if OptFanboxPostBodyUrlEmbedMapItemType was set.
-func (o OptFanboxPostBodyUrlEmbedMapItemType) IsSet() bool { return o.Set }
-
-// Reset unsets value.
-func (o *OptFanboxPostBodyUrlEmbedMapItemType) Reset() {
-	var v FanboxPostBodyUrlEmbedMapItemType
-	o.Value = v
-	o.Set = false
-}
-
-// SetTo sets value to v.
-func (o *OptFanboxPostBodyUrlEmbedMapItemType) SetTo(v FanboxPostBodyUrlEmbedMapItemType) {
-	o.Set = true
-	o.Value = v
-}
-
-// Get returns value and boolean that denotes whether value was set.
-func (o OptFanboxPostBodyUrlEmbedMapItemType) Get() (v FanboxPostBodyUrlEmbedMapItemType, ok bool) {
-	if !o.Set {
-		return v, false
-	}
-	return o.Value, true
-}
-
-// Or returns value if set, or given parameter if does not.
-func (o OptFanboxPostBodyUrlEmbedMapItemType) Or(d FanboxPostBodyUrlEmbedMapItemType) FanboxPostBodyUrlEmbedMapItemType {
-	if v, ok := o.Get(); ok {
-		return v
-	}
-	return d
-}
-
-// NewOptFanboxPostStatus returns new OptFanboxPostStatus with value set to v.
-func NewOptFanboxPostStatus(v FanboxPostStatus) OptFanboxPostStatus {
-	return OptFanboxPostStatus{
-		Value: v,
-		Set:   true,
-	}
-}
-
-// OptFanboxPostStatus is optional FanboxPostStatus.
-type OptFanboxPostStatus struct {
-	Value FanboxPostStatus
-	Set   bool
-}
-
-// IsSet returns true if OptFanboxPostStatus was set.
-func (o OptFanboxPostStatus) IsSet() bool { return o.Set }
-
-// Reset unsets value.
-func (o *OptFanboxPostStatus) Reset() {
-	var v FanboxPostStatus
-	o.Value = v
-	o.Set = false
-}
-
-// SetTo sets value to v.
-func (o *OptFanboxPostStatus) SetTo(v FanboxPostStatus) {
-	o.Set = true
-	o.Value = v
-}
-
-// Get returns value and boolean that denotes whether value was set.
-func (o OptFanboxPostStatus) Get() (v FanboxPostStatus, ok bool) {
-	if !o.Set {
-		return v, false
-	}
-	return o.Value, true
-}
-
-// Or returns value if set, or given parameter if does not.
-func (o OptFanboxPostStatus) Or(d FanboxPostStatus) FanboxPostStatus {
-	if v, ok := o.Get(); ok {
-		return v
-	}
-	return d
-}
-
 // NewOptInt returns new OptInt with value set to v.
 func NewOptInt(v int) OptInt {
 	return OptInt{
@@ -1163,6 +270,374 @@ func (o OptInt) Get() (v int, ok bool) {
 
 // Or returns value if set, or given parameter if does not.
 func (o OptInt) Or(d int) int {
+	if v, ok := o.Get(); ok {
+		return v
+	}
+	return d
+}
+
+// NewOptPost returns new OptPost with value set to v.
+func NewOptPost(v Post) OptPost {
+	return OptPost{
+		Value: v,
+		Set:   true,
+	}
+}
+
+// OptPost is optional Post.
+type OptPost struct {
+	Value Post
+	Set   bool
+}
+
+// IsSet returns true if OptPost was set.
+func (o OptPost) IsSet() bool { return o.Set }
+
+// Reset unsets value.
+func (o *OptPost) Reset() {
+	var v Post
+	o.Value = v
+	o.Set = false
+}
+
+// SetTo sets value to v.
+func (o *OptPost) SetTo(v Post) {
+	o.Set = true
+	o.Value = v
+}
+
+// Get returns value and boolean that denotes whether value was set.
+func (o OptPost) Get() (v Post, ok bool) {
+	if !o.Set {
+		return v, false
+	}
+	return o.Value, true
+}
+
+// Or returns value if set, or given parameter if does not.
+func (o OptPost) Or(d Post) Post {
+	if v, ok := o.Get(); ok {
+		return v
+	}
+	return d
+}
+
+// NewOptPostBody returns new OptPostBody with value set to v.
+func NewOptPostBody(v PostBody) OptPostBody {
+	return OptPostBody{
+		Value: v,
+		Set:   true,
+	}
+}
+
+// OptPostBody is optional PostBody.
+type OptPostBody struct {
+	Value PostBody
+	Set   bool
+}
+
+// IsSet returns true if OptPostBody was set.
+func (o OptPostBody) IsSet() bool { return o.Set }
+
+// Reset unsets value.
+func (o *OptPostBody) Reset() {
+	var v PostBody
+	o.Value = v
+	o.Set = false
+}
+
+// SetTo sets value to v.
+func (o *OptPostBody) SetTo(v PostBody) {
+	o.Set = true
+	o.Value = v
+}
+
+// Get returns value and boolean that denotes whether value was set.
+func (o OptPostBody) Get() (v PostBody, ok bool) {
+	if !o.Set {
+		return v, false
+	}
+	return o.Value, true
+}
+
+// Or returns value if set, or given parameter if does not.
+func (o OptPostBody) Or(d PostBody) PostBody {
+	if v, ok := o.Get(); ok {
+		return v
+	}
+	return d
+}
+
+// NewOptPostBodyBlocksItemType returns new OptPostBodyBlocksItemType with value set to v.
+func NewOptPostBodyBlocksItemType(v PostBodyBlocksItemType) OptPostBodyBlocksItemType {
+	return OptPostBodyBlocksItemType{
+		Value: v,
+		Set:   true,
+	}
+}
+
+// OptPostBodyBlocksItemType is optional PostBodyBlocksItemType.
+type OptPostBodyBlocksItemType struct {
+	Value PostBodyBlocksItemType
+	Set   bool
+}
+
+// IsSet returns true if OptPostBodyBlocksItemType was set.
+func (o OptPostBodyBlocksItemType) IsSet() bool { return o.Set }
+
+// Reset unsets value.
+func (o *OptPostBodyBlocksItemType) Reset() {
+	var v PostBodyBlocksItemType
+	o.Value = v
+	o.Set = false
+}
+
+// SetTo sets value to v.
+func (o *OptPostBodyBlocksItemType) SetTo(v PostBodyBlocksItemType) {
+	o.Set = true
+	o.Value = v
+}
+
+// Get returns value and boolean that denotes whether value was set.
+func (o OptPostBodyBlocksItemType) Get() (v PostBodyBlocksItemType, ok bool) {
+	if !o.Set {
+		return v, false
+	}
+	return o.Value, true
+}
+
+// Or returns value if set, or given parameter if does not.
+func (o OptPostBodyBlocksItemType) Or(d PostBodyBlocksItemType) PostBodyBlocksItemType {
+	if v, ok := o.Get(); ok {
+		return v
+	}
+	return d
+}
+
+// NewOptPostBodyImageMap returns new OptPostBodyImageMap with value set to v.
+func NewOptPostBodyImageMap(v PostBodyImageMap) OptPostBodyImageMap {
+	return OptPostBodyImageMap{
+		Value: v,
+		Set:   true,
+	}
+}
+
+// OptPostBodyImageMap is optional PostBodyImageMap.
+type OptPostBodyImageMap struct {
+	Value PostBodyImageMap
+	Set   bool
+}
+
+// IsSet returns true if OptPostBodyImageMap was set.
+func (o OptPostBodyImageMap) IsSet() bool { return o.Set }
+
+// Reset unsets value.
+func (o *OptPostBodyImageMap) Reset() {
+	var v PostBodyImageMap
+	o.Value = v
+	o.Set = false
+}
+
+// SetTo sets value to v.
+func (o *OptPostBodyImageMap) SetTo(v PostBodyImageMap) {
+	o.Set = true
+	o.Value = v
+}
+
+// Get returns value and boolean that denotes whether value was set.
+func (o OptPostBodyImageMap) Get() (v PostBodyImageMap, ok bool) {
+	if !o.Set {
+		return v, false
+	}
+	return o.Value, true
+}
+
+// Or returns value if set, or given parameter if does not.
+func (o OptPostBodyImageMap) Or(d PostBodyImageMap) PostBodyImageMap {
+	if v, ok := o.Get(); ok {
+		return v
+	}
+	return d
+}
+
+// NewOptPostBodyUrlEmbedMap returns new OptPostBodyUrlEmbedMap with value set to v.
+func NewOptPostBodyUrlEmbedMap(v PostBodyUrlEmbedMap) OptPostBodyUrlEmbedMap {
+	return OptPostBodyUrlEmbedMap{
+		Value: v,
+		Set:   true,
+	}
+}
+
+// OptPostBodyUrlEmbedMap is optional PostBodyUrlEmbedMap.
+type OptPostBodyUrlEmbedMap struct {
+	Value PostBodyUrlEmbedMap
+	Set   bool
+}
+
+// IsSet returns true if OptPostBodyUrlEmbedMap was set.
+func (o OptPostBodyUrlEmbedMap) IsSet() bool { return o.Set }
+
+// Reset unsets value.
+func (o *OptPostBodyUrlEmbedMap) Reset() {
+	var v PostBodyUrlEmbedMap
+	o.Value = v
+	o.Set = false
+}
+
+// SetTo sets value to v.
+func (o *OptPostBodyUrlEmbedMap) SetTo(v PostBodyUrlEmbedMap) {
+	o.Set = true
+	o.Value = v
+}
+
+// Get returns value and boolean that denotes whether value was set.
+func (o OptPostBodyUrlEmbedMap) Get() (v PostBodyUrlEmbedMap, ok bool) {
+	if !o.Set {
+		return v, false
+	}
+	return o.Value, true
+}
+
+// Or returns value if set, or given parameter if does not.
+func (o OptPostBodyUrlEmbedMap) Or(d PostBodyUrlEmbedMap) PostBodyUrlEmbedMap {
+	if v, ok := o.Get(); ok {
+		return v
+	}
+	return d
+}
+
+// NewOptPostBodyUrlEmbedMapItemPostInfo returns new OptPostBodyUrlEmbedMapItemPostInfo with value set to v.
+func NewOptPostBodyUrlEmbedMapItemPostInfo(v PostBodyUrlEmbedMapItemPostInfo) OptPostBodyUrlEmbedMapItemPostInfo {
+	return OptPostBodyUrlEmbedMapItemPostInfo{
+		Value: v,
+		Set:   true,
+	}
+}
+
+// OptPostBodyUrlEmbedMapItemPostInfo is optional PostBodyUrlEmbedMapItemPostInfo.
+type OptPostBodyUrlEmbedMapItemPostInfo struct {
+	Value PostBodyUrlEmbedMapItemPostInfo
+	Set   bool
+}
+
+// IsSet returns true if OptPostBodyUrlEmbedMapItemPostInfo was set.
+func (o OptPostBodyUrlEmbedMapItemPostInfo) IsSet() bool { return o.Set }
+
+// Reset unsets value.
+func (o *OptPostBodyUrlEmbedMapItemPostInfo) Reset() {
+	var v PostBodyUrlEmbedMapItemPostInfo
+	o.Value = v
+	o.Set = false
+}
+
+// SetTo sets value to v.
+func (o *OptPostBodyUrlEmbedMapItemPostInfo) SetTo(v PostBodyUrlEmbedMapItemPostInfo) {
+	o.Set = true
+	o.Value = v
+}
+
+// Get returns value and boolean that denotes whether value was set.
+func (o OptPostBodyUrlEmbedMapItemPostInfo) Get() (v PostBodyUrlEmbedMapItemPostInfo, ok bool) {
+	if !o.Set {
+		return v, false
+	}
+	return o.Value, true
+}
+
+// Or returns value if set, or given parameter if does not.
+func (o OptPostBodyUrlEmbedMapItemPostInfo) Or(d PostBodyUrlEmbedMapItemPostInfo) PostBodyUrlEmbedMapItemPostInfo {
+	if v, ok := o.Get(); ok {
+		return v
+	}
+	return d
+}
+
+// NewOptPostBodyUrlEmbedMapItemType returns new OptPostBodyUrlEmbedMapItemType with value set to v.
+func NewOptPostBodyUrlEmbedMapItemType(v PostBodyUrlEmbedMapItemType) OptPostBodyUrlEmbedMapItemType {
+	return OptPostBodyUrlEmbedMapItemType{
+		Value: v,
+		Set:   true,
+	}
+}
+
+// OptPostBodyUrlEmbedMapItemType is optional PostBodyUrlEmbedMapItemType.
+type OptPostBodyUrlEmbedMapItemType struct {
+	Value PostBodyUrlEmbedMapItemType
+	Set   bool
+}
+
+// IsSet returns true if OptPostBodyUrlEmbedMapItemType was set.
+func (o OptPostBodyUrlEmbedMapItemType) IsSet() bool { return o.Set }
+
+// Reset unsets value.
+func (o *OptPostBodyUrlEmbedMapItemType) Reset() {
+	var v PostBodyUrlEmbedMapItemType
+	o.Value = v
+	o.Set = false
+}
+
+// SetTo sets value to v.
+func (o *OptPostBodyUrlEmbedMapItemType) SetTo(v PostBodyUrlEmbedMapItemType) {
+	o.Set = true
+	o.Value = v
+}
+
+// Get returns value and boolean that denotes whether value was set.
+func (o OptPostBodyUrlEmbedMapItemType) Get() (v PostBodyUrlEmbedMapItemType, ok bool) {
+	if !o.Set {
+		return v, false
+	}
+	return o.Value, true
+}
+
+// Or returns value if set, or given parameter if does not.
+func (o OptPostBodyUrlEmbedMapItemType) Or(d PostBodyUrlEmbedMapItemType) PostBodyUrlEmbedMapItemType {
+	if v, ok := o.Get(); ok {
+		return v
+	}
+	return d
+}
+
+// NewOptPostStatus returns new OptPostStatus with value set to v.
+func NewOptPostStatus(v PostStatus) OptPostStatus {
+	return OptPostStatus{
+		Value: v,
+		Set:   true,
+	}
+}
+
+// OptPostStatus is optional PostStatus.
+type OptPostStatus struct {
+	Value PostStatus
+	Set   bool
+}
+
+// IsSet returns true if OptPostStatus was set.
+func (o OptPostStatus) IsSet() bool { return o.Set }
+
+// Reset unsets value.
+func (o *OptPostStatus) Reset() {
+	var v PostStatus
+	o.Value = v
+	o.Set = false
+}
+
+// SetTo sets value to v.
+func (o *OptPostStatus) SetTo(v PostStatus) {
+	o.Set = true
+	o.Value = v
+}
+
+// Get returns value and boolean that denotes whether value was set.
+func (o OptPostStatus) Get() (v PostStatus, ok bool) {
+	if !o.Set {
+		return v, false
+	}
+	return o.Value, true
+}
+
+// Or returns value if set, or given parameter if does not.
+func (o OptPostStatus) Or(d PostStatus) PostStatus {
 	if v, ok := o.Get(); ok {
 		return v
 	}
@@ -1307,6 +782,531 @@ func (o OptUpdatePostReqStatus) Or(d UpdatePostReqStatus) UpdatePostReqStatus {
 	return d
 }
 
+// Ref: #/components/schemas/Post
+type Post struct {
+	ID          OptString     `json:"id"`
+	Title       OptString     `json:"title"`
+	Status      OptPostStatus `json:"status"`
+	Permalink   OptString     `json:"permalink"`
+	FeeRequired OptInt        `json:"feeRequired"`
+	UpdatedAt   OptString     `json:"updatedAt"`
+	PublishedAt OptString     `json:"publishedAt"`
+	Body        OptPostBody   `json:"body"`
+}
+
+// GetID returns the value of ID.
+func (s *Post) GetID() OptString {
+	return s.ID
+}
+
+// GetTitle returns the value of Title.
+func (s *Post) GetTitle() OptString {
+	return s.Title
+}
+
+// GetStatus returns the value of Status.
+func (s *Post) GetStatus() OptPostStatus {
+	return s.Status
+}
+
+// GetPermalink returns the value of Permalink.
+func (s *Post) GetPermalink() OptString {
+	return s.Permalink
+}
+
+// GetFeeRequired returns the value of FeeRequired.
+func (s *Post) GetFeeRequired() OptInt {
+	return s.FeeRequired
+}
+
+// GetUpdatedAt returns the value of UpdatedAt.
+func (s *Post) GetUpdatedAt() OptString {
+	return s.UpdatedAt
+}
+
+// GetPublishedAt returns the value of PublishedAt.
+func (s *Post) GetPublishedAt() OptString {
+	return s.PublishedAt
+}
+
+// GetBody returns the value of Body.
+func (s *Post) GetBody() OptPostBody {
+	return s.Body
+}
+
+// SetID sets the value of ID.
+func (s *Post) SetID(val OptString) {
+	s.ID = val
+}
+
+// SetTitle sets the value of Title.
+func (s *Post) SetTitle(val OptString) {
+	s.Title = val
+}
+
+// SetStatus sets the value of Status.
+func (s *Post) SetStatus(val OptPostStatus) {
+	s.Status = val
+}
+
+// SetPermalink sets the value of Permalink.
+func (s *Post) SetPermalink(val OptString) {
+	s.Permalink = val
+}
+
+// SetFeeRequired sets the value of FeeRequired.
+func (s *Post) SetFeeRequired(val OptInt) {
+	s.FeeRequired = val
+}
+
+// SetUpdatedAt sets the value of UpdatedAt.
+func (s *Post) SetUpdatedAt(val OptString) {
+	s.UpdatedAt = val
+}
+
+// SetPublishedAt sets the value of PublishedAt.
+func (s *Post) SetPublishedAt(val OptString) {
+	s.PublishedAt = val
+}
+
+// SetBody sets the value of Body.
+func (s *Post) SetBody(val OptPostBody) {
+	s.Body = val
+}
+
+type PostBody struct {
+	Blocks      []PostBodyBlocksItem   `json:"blocks"`
+	ImageMap    OptPostBodyImageMap    `json:"imageMap"`
+	UrlEmbedMap OptPostBodyUrlEmbedMap `json:"urlEmbedMap"`
+}
+
+// GetBlocks returns the value of Blocks.
+func (s *PostBody) GetBlocks() []PostBodyBlocksItem {
+	return s.Blocks
+}
+
+// GetImageMap returns the value of ImageMap.
+func (s *PostBody) GetImageMap() OptPostBodyImageMap {
+	return s.ImageMap
+}
+
+// GetUrlEmbedMap returns the value of UrlEmbedMap.
+func (s *PostBody) GetUrlEmbedMap() OptPostBodyUrlEmbedMap {
+	return s.UrlEmbedMap
+}
+
+// SetBlocks sets the value of Blocks.
+func (s *PostBody) SetBlocks(val []PostBodyBlocksItem) {
+	s.Blocks = val
+}
+
+// SetImageMap sets the value of ImageMap.
+func (s *PostBody) SetImageMap(val OptPostBodyImageMap) {
+	s.ImageMap = val
+}
+
+// SetUrlEmbedMap sets the value of UrlEmbedMap.
+func (s *PostBody) SetUrlEmbedMap(val OptPostBodyUrlEmbedMap) {
+	s.UrlEmbedMap = val
+}
+
+type PostBodyBlocksItem struct {
+	Type       OptPostBodyBlocksItemType      `json:"type"`
+	Text       OptString                      `json:"text"`
+	ImageId    OptString                      `json:"imageId"`
+	UrlEmbedId OptString                      `json:"urlEmbedId"`
+	Styles     []PostBodyBlocksItemStylesItem `json:"styles"`
+}
+
+// GetType returns the value of Type.
+func (s *PostBodyBlocksItem) GetType() OptPostBodyBlocksItemType {
+	return s.Type
+}
+
+// GetText returns the value of Text.
+func (s *PostBodyBlocksItem) GetText() OptString {
+	return s.Text
+}
+
+// GetImageId returns the value of ImageId.
+func (s *PostBodyBlocksItem) GetImageId() OptString {
+	return s.ImageId
+}
+
+// GetUrlEmbedId returns the value of UrlEmbedId.
+func (s *PostBodyBlocksItem) GetUrlEmbedId() OptString {
+	return s.UrlEmbedId
+}
+
+// GetStyles returns the value of Styles.
+func (s *PostBodyBlocksItem) GetStyles() []PostBodyBlocksItemStylesItem {
+	return s.Styles
+}
+
+// SetType sets the value of Type.
+func (s *PostBodyBlocksItem) SetType(val OptPostBodyBlocksItemType) {
+	s.Type = val
+}
+
+// SetText sets the value of Text.
+func (s *PostBodyBlocksItem) SetText(val OptString) {
+	s.Text = val
+}
+
+// SetImageId sets the value of ImageId.
+func (s *PostBodyBlocksItem) SetImageId(val OptString) {
+	s.ImageId = val
+}
+
+// SetUrlEmbedId sets the value of UrlEmbedId.
+func (s *PostBodyBlocksItem) SetUrlEmbedId(val OptString) {
+	s.UrlEmbedId = val
+}
+
+// SetStyles sets the value of Styles.
+func (s *PostBodyBlocksItem) SetStyles(val []PostBodyBlocksItemStylesItem) {
+	s.Styles = val
+}
+
+type PostBodyBlocksItemStylesItem struct {
+	Type   OptString `json:"type"`
+	Offset OptInt    `json:"offset"`
+	Length OptInt    `json:"length"`
+}
+
+// GetType returns the value of Type.
+func (s *PostBodyBlocksItemStylesItem) GetType() OptString {
+	return s.Type
+}
+
+// GetOffset returns the value of Offset.
+func (s *PostBodyBlocksItemStylesItem) GetOffset() OptInt {
+	return s.Offset
+}
+
+// GetLength returns the value of Length.
+func (s *PostBodyBlocksItemStylesItem) GetLength() OptInt {
+	return s.Length
+}
+
+// SetType sets the value of Type.
+func (s *PostBodyBlocksItemStylesItem) SetType(val OptString) {
+	s.Type = val
+}
+
+// SetOffset sets the value of Offset.
+func (s *PostBodyBlocksItemStylesItem) SetOffset(val OptInt) {
+	s.Offset = val
+}
+
+// SetLength sets the value of Length.
+func (s *PostBodyBlocksItemStylesItem) SetLength(val OptInt) {
+	s.Length = val
+}
+
+type PostBodyBlocksItemType string
+
+const (
+	PostBodyBlocksItemTypeP        PostBodyBlocksItemType = "p"
+	PostBodyBlocksItemTypeHeader   PostBodyBlocksItemType = "header"
+	PostBodyBlocksItemTypeImage    PostBodyBlocksItemType = "image"
+	PostBodyBlocksItemTypeURLEmbed PostBodyBlocksItemType = "url_embed"
+)
+
+// AllValues returns all PostBodyBlocksItemType values.
+func (PostBodyBlocksItemType) AllValues() []PostBodyBlocksItemType {
+	return []PostBodyBlocksItemType{
+		PostBodyBlocksItemTypeP,
+		PostBodyBlocksItemTypeHeader,
+		PostBodyBlocksItemTypeImage,
+		PostBodyBlocksItemTypeURLEmbed,
+	}
+}
+
+// MarshalText implements encoding.TextMarshaler.
+func (s PostBodyBlocksItemType) MarshalText() ([]byte, error) {
+	switch s {
+	case PostBodyBlocksItemTypeP:
+		return []byte(s), nil
+	case PostBodyBlocksItemTypeHeader:
+		return []byte(s), nil
+	case PostBodyBlocksItemTypeImage:
+		return []byte(s), nil
+	case PostBodyBlocksItemTypeURLEmbed:
+		return []byte(s), nil
+	default:
+		return nil, errors.Errorf("invalid value: %q", s)
+	}
+}
+
+// UnmarshalText implements encoding.TextUnmarshaler.
+func (s *PostBodyBlocksItemType) UnmarshalText(data []byte) error {
+	switch PostBodyBlocksItemType(data) {
+	case PostBodyBlocksItemTypeP:
+		*s = PostBodyBlocksItemTypeP
+		return nil
+	case PostBodyBlocksItemTypeHeader:
+		*s = PostBodyBlocksItemTypeHeader
+		return nil
+	case PostBodyBlocksItemTypeImage:
+		*s = PostBodyBlocksItemTypeImage
+		return nil
+	case PostBodyBlocksItemTypeURLEmbed:
+		*s = PostBodyBlocksItemTypeURLEmbed
+		return nil
+	default:
+		return errors.Errorf("invalid value: %q", data)
+	}
+}
+
+type PostBodyImageMap map[string]PostBodyImageMapItem
+
+func (s *PostBodyImageMap) init() PostBodyImageMap {
+	m := *s
+	if m == nil {
+		m = map[string]PostBodyImageMapItem{}
+		*s = m
+	}
+	return m
+}
+
+type PostBodyImageMapItem struct {
+	ID           OptString `json:"id"`
+	Extension    OptString `json:"extension"`
+	OriginalUrl  OptString `json:"originalUrl"`
+	ThumbnailUrl OptString `json:"thumbnailUrl"`
+}
+
+// GetID returns the value of ID.
+func (s *PostBodyImageMapItem) GetID() OptString {
+	return s.ID
+}
+
+// GetExtension returns the value of Extension.
+func (s *PostBodyImageMapItem) GetExtension() OptString {
+	return s.Extension
+}
+
+// GetOriginalUrl returns the value of OriginalUrl.
+func (s *PostBodyImageMapItem) GetOriginalUrl() OptString {
+	return s.OriginalUrl
+}
+
+// GetThumbnailUrl returns the value of ThumbnailUrl.
+func (s *PostBodyImageMapItem) GetThumbnailUrl() OptString {
+	return s.ThumbnailUrl
+}
+
+// SetID sets the value of ID.
+func (s *PostBodyImageMapItem) SetID(val OptString) {
+	s.ID = val
+}
+
+// SetExtension sets the value of Extension.
+func (s *PostBodyImageMapItem) SetExtension(val OptString) {
+	s.Extension = val
+}
+
+// SetOriginalUrl sets the value of OriginalUrl.
+func (s *PostBodyImageMapItem) SetOriginalUrl(val OptString) {
+	s.OriginalUrl = val
+}
+
+// SetThumbnailUrl sets the value of ThumbnailUrl.
+func (s *PostBodyImageMapItem) SetThumbnailUrl(val OptString) {
+	s.ThumbnailUrl = val
+}
+
+type PostBodyUrlEmbedMap map[string]PostBodyUrlEmbedMapItem
+
+func (s *PostBodyUrlEmbedMap) init() PostBodyUrlEmbedMap {
+	m := *s
+	if m == nil {
+		m = map[string]PostBodyUrlEmbedMapItem{}
+		*s = m
+	}
+	return m
+}
+
+type PostBodyUrlEmbedMapItem struct {
+	ID       OptString                          `json:"id"`
+	Type     OptPostBodyUrlEmbedMapItemType     `json:"type"`
+	HTML     OptString                          `json:"html"`
+	URL      OptString                          `json:"url"`
+	PostInfo OptPostBodyUrlEmbedMapItemPostInfo `json:"post_info"`
+}
+
+// GetID returns the value of ID.
+func (s *PostBodyUrlEmbedMapItem) GetID() OptString {
+	return s.ID
+}
+
+// GetType returns the value of Type.
+func (s *PostBodyUrlEmbedMapItem) GetType() OptPostBodyUrlEmbedMapItemType {
+	return s.Type
+}
+
+// GetHTML returns the value of HTML.
+func (s *PostBodyUrlEmbedMapItem) GetHTML() OptString {
+	return s.HTML
+}
+
+// GetURL returns the value of URL.
+func (s *PostBodyUrlEmbedMapItem) GetURL() OptString {
+	return s.URL
+}
+
+// GetPostInfo returns the value of PostInfo.
+func (s *PostBodyUrlEmbedMapItem) GetPostInfo() OptPostBodyUrlEmbedMapItemPostInfo {
+	return s.PostInfo
+}
+
+// SetID sets the value of ID.
+func (s *PostBodyUrlEmbedMapItem) SetID(val OptString) {
+	s.ID = val
+}
+
+// SetType sets the value of Type.
+func (s *PostBodyUrlEmbedMapItem) SetType(val OptPostBodyUrlEmbedMapItemType) {
+	s.Type = val
+}
+
+// SetHTML sets the value of HTML.
+func (s *PostBodyUrlEmbedMapItem) SetHTML(val OptString) {
+	s.HTML = val
+}
+
+// SetURL sets the value of URL.
+func (s *PostBodyUrlEmbedMapItem) SetURL(val OptString) {
+	s.URL = val
+}
+
+// SetPostInfo sets the value of PostInfo.
+func (s *PostBodyUrlEmbedMapItem) SetPostInfo(val OptPostBodyUrlEmbedMapItemPostInfo) {
+	s.PostInfo = val
+}
+
+type PostBodyUrlEmbedMapItemPostInfo struct {
+	ID        OptString `json:"id"`
+	CreatorId OptString `json:"creatorId"`
+}
+
+// GetID returns the value of ID.
+func (s *PostBodyUrlEmbedMapItemPostInfo) GetID() OptString {
+	return s.ID
+}
+
+// GetCreatorId returns the value of CreatorId.
+func (s *PostBodyUrlEmbedMapItemPostInfo) GetCreatorId() OptString {
+	return s.CreatorId
+}
+
+// SetID sets the value of ID.
+func (s *PostBodyUrlEmbedMapItemPostInfo) SetID(val OptString) {
+	s.ID = val
+}
+
+// SetCreatorId sets the value of CreatorId.
+func (s *PostBodyUrlEmbedMapItemPostInfo) SetCreatorId(val OptString) {
+	s.CreatorId = val
+}
+
+type PostBodyUrlEmbedMapItemType string
+
+const (
+	PostBodyUrlEmbedMapItemTypeHTMLCard   PostBodyUrlEmbedMapItemType = "html.card"
+	PostBodyUrlEmbedMapItemTypeHTML       PostBodyUrlEmbedMapItemType = "html"
+	PostBodyUrlEmbedMapItemTypeFanboxPost PostBodyUrlEmbedMapItemType = "fanbox.post"
+	PostBodyUrlEmbedMapItemTypeDefault    PostBodyUrlEmbedMapItemType = "default"
+)
+
+// AllValues returns all PostBodyUrlEmbedMapItemType values.
+func (PostBodyUrlEmbedMapItemType) AllValues() []PostBodyUrlEmbedMapItemType {
+	return []PostBodyUrlEmbedMapItemType{
+		PostBodyUrlEmbedMapItemTypeHTMLCard,
+		PostBodyUrlEmbedMapItemTypeHTML,
+		PostBodyUrlEmbedMapItemTypeFanboxPost,
+		PostBodyUrlEmbedMapItemTypeDefault,
+	}
+}
+
+// MarshalText implements encoding.TextMarshaler.
+func (s PostBodyUrlEmbedMapItemType) MarshalText() ([]byte, error) {
+	switch s {
+	case PostBodyUrlEmbedMapItemTypeHTMLCard:
+		return []byte(s), nil
+	case PostBodyUrlEmbedMapItemTypeHTML:
+		return []byte(s), nil
+	case PostBodyUrlEmbedMapItemTypeFanboxPost:
+		return []byte(s), nil
+	case PostBodyUrlEmbedMapItemTypeDefault:
+		return []byte(s), nil
+	default:
+		return nil, errors.Errorf("invalid value: %q", s)
+	}
+}
+
+// UnmarshalText implements encoding.TextUnmarshaler.
+func (s *PostBodyUrlEmbedMapItemType) UnmarshalText(data []byte) error {
+	switch PostBodyUrlEmbedMapItemType(data) {
+	case PostBodyUrlEmbedMapItemTypeHTMLCard:
+		*s = PostBodyUrlEmbedMapItemTypeHTMLCard
+		return nil
+	case PostBodyUrlEmbedMapItemTypeHTML:
+		*s = PostBodyUrlEmbedMapItemTypeHTML
+		return nil
+	case PostBodyUrlEmbedMapItemTypeFanboxPost:
+		*s = PostBodyUrlEmbedMapItemTypeFanboxPost
+		return nil
+	case PostBodyUrlEmbedMapItemTypeDefault:
+		*s = PostBodyUrlEmbedMapItemTypeDefault
+		return nil
+	default:
+		return errors.Errorf("invalid value: %q", data)
+	}
+}
+
+type PostStatus string
+
+const (
+	PostStatusDraft     PostStatus = "draft"
+	PostStatusPublished PostStatus = "published"
+)
+
+// AllValues returns all PostStatus values.
+func (PostStatus) AllValues() []PostStatus {
+	return []PostStatus{
+		PostStatusDraft,
+		PostStatusPublished,
+	}
+}
+
+// MarshalText implements encoding.TextMarshaler.
+func (s PostStatus) MarshalText() ([]byte, error) {
+	switch s {
+	case PostStatusDraft:
+		return []byte(s), nil
+	case PostStatusPublished:
+		return []byte(s), nil
+	default:
+		return nil, errors.Errorf("invalid value: %q", s)
+	}
+}
+
+// UnmarshalText implements encoding.TextUnmarshaler.
+func (s *PostStatus) UnmarshalText(data []byte) error {
+	switch PostStatus(data) {
+	case PostStatusDraft:
+		*s = PostStatusDraft
+		return nil
+	case PostStatusPublished:
+		*s = PostStatusPublished
+		return nil
+	default:
+		return errors.Errorf("invalid value: %q", data)
+	}
+}
+
 type SessionId struct {
 	APIKey string
 }
@@ -1322,16 +1322,16 @@ func (s *SessionId) SetAPIKey(val string) {
 }
 
 type Update struct {
-	Body OptFanboxPost `json:"body"`
+	Body OptPost `json:"body"`
 }
 
 // GetBody returns the value of Body.
-func (s *Update) GetBody() OptFanboxPost {
+func (s *Update) GetBody() OptPost {
 	return s.Body
 }
 
 // SetBody sets the value of Body.
-func (s *Update) SetBody(val OptFanboxPost) {
+func (s *Update) SetBody(val OptPost) {
 	s.Body = val
 }
 

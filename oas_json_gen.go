@@ -313,1096 +313,6 @@ func (s *CreatePostReqType) UnmarshalJSON(data []byte) error {
 }
 
 // Encode implements json.Marshaler.
-func (s *FanboxPost) Encode(e *jx.Encoder) {
-	e.ObjStart()
-	s.encodeFields(e)
-	e.ObjEnd()
-}
-
-// encodeFields encodes fields.
-func (s *FanboxPost) encodeFields(e *jx.Encoder) {
-	{
-		if s.ID.Set {
-			e.FieldStart("id")
-			s.ID.Encode(e)
-		}
-	}
-	{
-		if s.Title.Set {
-			e.FieldStart("title")
-			s.Title.Encode(e)
-		}
-	}
-	{
-		if s.Status.Set {
-			e.FieldStart("status")
-			s.Status.Encode(e)
-		}
-	}
-	{
-		if s.Permalink.Set {
-			e.FieldStart("permalink")
-			s.Permalink.Encode(e)
-		}
-	}
-	{
-		if s.FeeRequired.Set {
-			e.FieldStart("feeRequired")
-			s.FeeRequired.Encode(e)
-		}
-	}
-	{
-		if s.UpdatedAt.Set {
-			e.FieldStart("updatedAt")
-			s.UpdatedAt.Encode(e)
-		}
-	}
-	{
-		if s.PublishedAt.Set {
-			e.FieldStart("publishedAt")
-			s.PublishedAt.Encode(e)
-		}
-	}
-	{
-		if s.Body.Set {
-			e.FieldStart("body")
-			s.Body.Encode(e)
-		}
-	}
-}
-
-var jsonFieldsNameOfFanboxPost = [8]string{
-	0: "id",
-	1: "title",
-	2: "status",
-	3: "permalink",
-	4: "feeRequired",
-	5: "updatedAt",
-	6: "publishedAt",
-	7: "body",
-}
-
-// Decode decodes FanboxPost from json.
-func (s *FanboxPost) Decode(d *jx.Decoder) error {
-	if s == nil {
-		return errors.New("invalid: unable to decode FanboxPost to nil")
-	}
-
-	if err := d.ObjBytes(func(d *jx.Decoder, k []byte) error {
-		switch string(k) {
-		case "id":
-			if err := func() error {
-				s.ID.Reset()
-				if err := s.ID.Decode(d); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return errors.Wrap(err, "decode field \"id\"")
-			}
-		case "title":
-			if err := func() error {
-				s.Title.Reset()
-				if err := s.Title.Decode(d); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return errors.Wrap(err, "decode field \"title\"")
-			}
-		case "status":
-			if err := func() error {
-				s.Status.Reset()
-				if err := s.Status.Decode(d); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return errors.Wrap(err, "decode field \"status\"")
-			}
-		case "permalink":
-			if err := func() error {
-				s.Permalink.Reset()
-				if err := s.Permalink.Decode(d); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return errors.Wrap(err, "decode field \"permalink\"")
-			}
-		case "feeRequired":
-			if err := func() error {
-				s.FeeRequired.Reset()
-				if err := s.FeeRequired.Decode(d); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return errors.Wrap(err, "decode field \"feeRequired\"")
-			}
-		case "updatedAt":
-			if err := func() error {
-				s.UpdatedAt.Reset()
-				if err := s.UpdatedAt.Decode(d); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return errors.Wrap(err, "decode field \"updatedAt\"")
-			}
-		case "publishedAt":
-			if err := func() error {
-				s.PublishedAt.Reset()
-				if err := s.PublishedAt.Decode(d); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return errors.Wrap(err, "decode field \"publishedAt\"")
-			}
-		case "body":
-			if err := func() error {
-				s.Body.Reset()
-				if err := s.Body.Decode(d); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return errors.Wrap(err, "decode field \"body\"")
-			}
-		default:
-			return d.Skip()
-		}
-		return nil
-	}); err != nil {
-		return errors.Wrap(err, "decode FanboxPost")
-	}
-
-	return nil
-}
-
-// MarshalJSON implements stdjson.Marshaler.
-func (s *FanboxPost) MarshalJSON() ([]byte, error) {
-	e := jx.Encoder{}
-	s.Encode(&e)
-	return e.Bytes(), nil
-}
-
-// UnmarshalJSON implements stdjson.Unmarshaler.
-func (s *FanboxPost) UnmarshalJSON(data []byte) error {
-	d := jx.DecodeBytes(data)
-	return s.Decode(d)
-}
-
-// Encode implements json.Marshaler.
-func (s *FanboxPostBody) Encode(e *jx.Encoder) {
-	e.ObjStart()
-	s.encodeFields(e)
-	e.ObjEnd()
-}
-
-// encodeFields encodes fields.
-func (s *FanboxPostBody) encodeFields(e *jx.Encoder) {
-	{
-		if s.Blocks != nil {
-			e.FieldStart("blocks")
-			e.ArrStart()
-			for _, elem := range s.Blocks {
-				elem.Encode(e)
-			}
-			e.ArrEnd()
-		}
-	}
-	{
-		if s.ImageMap.Set {
-			e.FieldStart("imageMap")
-			s.ImageMap.Encode(e)
-		}
-	}
-	{
-		if s.UrlEmbedMap.Set {
-			e.FieldStart("urlEmbedMap")
-			s.UrlEmbedMap.Encode(e)
-		}
-	}
-}
-
-var jsonFieldsNameOfFanboxPostBody = [3]string{
-	0: "blocks",
-	1: "imageMap",
-	2: "urlEmbedMap",
-}
-
-// Decode decodes FanboxPostBody from json.
-func (s *FanboxPostBody) Decode(d *jx.Decoder) error {
-	if s == nil {
-		return errors.New("invalid: unable to decode FanboxPostBody to nil")
-	}
-
-	if err := d.ObjBytes(func(d *jx.Decoder, k []byte) error {
-		switch string(k) {
-		case "blocks":
-			if err := func() error {
-				s.Blocks = make([]FanboxPostBodyBlocksItem, 0)
-				if err := d.Arr(func(d *jx.Decoder) error {
-					var elem FanboxPostBodyBlocksItem
-					if err := elem.Decode(d); err != nil {
-						return err
-					}
-					s.Blocks = append(s.Blocks, elem)
-					return nil
-				}); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return errors.Wrap(err, "decode field \"blocks\"")
-			}
-		case "imageMap":
-			if err := func() error {
-				s.ImageMap.Reset()
-				if err := s.ImageMap.Decode(d); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return errors.Wrap(err, "decode field \"imageMap\"")
-			}
-		case "urlEmbedMap":
-			if err := func() error {
-				s.UrlEmbedMap.Reset()
-				if err := s.UrlEmbedMap.Decode(d); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return errors.Wrap(err, "decode field \"urlEmbedMap\"")
-			}
-		default:
-			return d.Skip()
-		}
-		return nil
-	}); err != nil {
-		return errors.Wrap(err, "decode FanboxPostBody")
-	}
-
-	return nil
-}
-
-// MarshalJSON implements stdjson.Marshaler.
-func (s *FanboxPostBody) MarshalJSON() ([]byte, error) {
-	e := jx.Encoder{}
-	s.Encode(&e)
-	return e.Bytes(), nil
-}
-
-// UnmarshalJSON implements stdjson.Unmarshaler.
-func (s *FanboxPostBody) UnmarshalJSON(data []byte) error {
-	d := jx.DecodeBytes(data)
-	return s.Decode(d)
-}
-
-// Encode implements json.Marshaler.
-func (s *FanboxPostBodyBlocksItem) Encode(e *jx.Encoder) {
-	e.ObjStart()
-	s.encodeFields(e)
-	e.ObjEnd()
-}
-
-// encodeFields encodes fields.
-func (s *FanboxPostBodyBlocksItem) encodeFields(e *jx.Encoder) {
-	{
-		if s.Type.Set {
-			e.FieldStart("type")
-			s.Type.Encode(e)
-		}
-	}
-	{
-		if s.Text.Set {
-			e.FieldStart("text")
-			s.Text.Encode(e)
-		}
-	}
-	{
-		if s.ImageId.Set {
-			e.FieldStart("imageId")
-			s.ImageId.Encode(e)
-		}
-	}
-	{
-		if s.UrlEmbedId.Set {
-			e.FieldStart("urlEmbedId")
-			s.UrlEmbedId.Encode(e)
-		}
-	}
-	{
-		if s.Styles != nil {
-			e.FieldStart("styles")
-			e.ArrStart()
-			for _, elem := range s.Styles {
-				elem.Encode(e)
-			}
-			e.ArrEnd()
-		}
-	}
-}
-
-var jsonFieldsNameOfFanboxPostBodyBlocksItem = [5]string{
-	0: "type",
-	1: "text",
-	2: "imageId",
-	3: "urlEmbedId",
-	4: "styles",
-}
-
-// Decode decodes FanboxPostBodyBlocksItem from json.
-func (s *FanboxPostBodyBlocksItem) Decode(d *jx.Decoder) error {
-	if s == nil {
-		return errors.New("invalid: unable to decode FanboxPostBodyBlocksItem to nil")
-	}
-
-	if err := d.ObjBytes(func(d *jx.Decoder, k []byte) error {
-		switch string(k) {
-		case "type":
-			if err := func() error {
-				s.Type.Reset()
-				if err := s.Type.Decode(d); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return errors.Wrap(err, "decode field \"type\"")
-			}
-		case "text":
-			if err := func() error {
-				s.Text.Reset()
-				if err := s.Text.Decode(d); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return errors.Wrap(err, "decode field \"text\"")
-			}
-		case "imageId":
-			if err := func() error {
-				s.ImageId.Reset()
-				if err := s.ImageId.Decode(d); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return errors.Wrap(err, "decode field \"imageId\"")
-			}
-		case "urlEmbedId":
-			if err := func() error {
-				s.UrlEmbedId.Reset()
-				if err := s.UrlEmbedId.Decode(d); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return errors.Wrap(err, "decode field \"urlEmbedId\"")
-			}
-		case "styles":
-			if err := func() error {
-				s.Styles = make([]FanboxPostBodyBlocksItemStylesItem, 0)
-				if err := d.Arr(func(d *jx.Decoder) error {
-					var elem FanboxPostBodyBlocksItemStylesItem
-					if err := elem.Decode(d); err != nil {
-						return err
-					}
-					s.Styles = append(s.Styles, elem)
-					return nil
-				}); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return errors.Wrap(err, "decode field \"styles\"")
-			}
-		default:
-			return d.Skip()
-		}
-		return nil
-	}); err != nil {
-		return errors.Wrap(err, "decode FanboxPostBodyBlocksItem")
-	}
-
-	return nil
-}
-
-// MarshalJSON implements stdjson.Marshaler.
-func (s *FanboxPostBodyBlocksItem) MarshalJSON() ([]byte, error) {
-	e := jx.Encoder{}
-	s.Encode(&e)
-	return e.Bytes(), nil
-}
-
-// UnmarshalJSON implements stdjson.Unmarshaler.
-func (s *FanboxPostBodyBlocksItem) UnmarshalJSON(data []byte) error {
-	d := jx.DecodeBytes(data)
-	return s.Decode(d)
-}
-
-// Encode implements json.Marshaler.
-func (s *FanboxPostBodyBlocksItemStylesItem) Encode(e *jx.Encoder) {
-	e.ObjStart()
-	s.encodeFields(e)
-	e.ObjEnd()
-}
-
-// encodeFields encodes fields.
-func (s *FanboxPostBodyBlocksItemStylesItem) encodeFields(e *jx.Encoder) {
-	{
-		if s.Type.Set {
-			e.FieldStart("type")
-			s.Type.Encode(e)
-		}
-	}
-	{
-		if s.Offset.Set {
-			e.FieldStart("offset")
-			s.Offset.Encode(e)
-		}
-	}
-	{
-		if s.Length.Set {
-			e.FieldStart("length")
-			s.Length.Encode(e)
-		}
-	}
-}
-
-var jsonFieldsNameOfFanboxPostBodyBlocksItemStylesItem = [3]string{
-	0: "type",
-	1: "offset",
-	2: "length",
-}
-
-// Decode decodes FanboxPostBodyBlocksItemStylesItem from json.
-func (s *FanboxPostBodyBlocksItemStylesItem) Decode(d *jx.Decoder) error {
-	if s == nil {
-		return errors.New("invalid: unable to decode FanboxPostBodyBlocksItemStylesItem to nil")
-	}
-
-	if err := d.ObjBytes(func(d *jx.Decoder, k []byte) error {
-		switch string(k) {
-		case "type":
-			if err := func() error {
-				s.Type.Reset()
-				if err := s.Type.Decode(d); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return errors.Wrap(err, "decode field \"type\"")
-			}
-		case "offset":
-			if err := func() error {
-				s.Offset.Reset()
-				if err := s.Offset.Decode(d); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return errors.Wrap(err, "decode field \"offset\"")
-			}
-		case "length":
-			if err := func() error {
-				s.Length.Reset()
-				if err := s.Length.Decode(d); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return errors.Wrap(err, "decode field \"length\"")
-			}
-		default:
-			return d.Skip()
-		}
-		return nil
-	}); err != nil {
-		return errors.Wrap(err, "decode FanboxPostBodyBlocksItemStylesItem")
-	}
-
-	return nil
-}
-
-// MarshalJSON implements stdjson.Marshaler.
-func (s *FanboxPostBodyBlocksItemStylesItem) MarshalJSON() ([]byte, error) {
-	e := jx.Encoder{}
-	s.Encode(&e)
-	return e.Bytes(), nil
-}
-
-// UnmarshalJSON implements stdjson.Unmarshaler.
-func (s *FanboxPostBodyBlocksItemStylesItem) UnmarshalJSON(data []byte) error {
-	d := jx.DecodeBytes(data)
-	return s.Decode(d)
-}
-
-// Encode encodes FanboxPostBodyBlocksItemType as json.
-func (s FanboxPostBodyBlocksItemType) Encode(e *jx.Encoder) {
-	e.Str(string(s))
-}
-
-// Decode decodes FanboxPostBodyBlocksItemType from json.
-func (s *FanboxPostBodyBlocksItemType) Decode(d *jx.Decoder) error {
-	if s == nil {
-		return errors.New("invalid: unable to decode FanboxPostBodyBlocksItemType to nil")
-	}
-	v, err := d.StrBytes()
-	if err != nil {
-		return err
-	}
-	// Try to use constant string.
-	switch FanboxPostBodyBlocksItemType(v) {
-	case FanboxPostBodyBlocksItemTypeP:
-		*s = FanboxPostBodyBlocksItemTypeP
-	case FanboxPostBodyBlocksItemTypeHeader:
-		*s = FanboxPostBodyBlocksItemTypeHeader
-	case FanboxPostBodyBlocksItemTypeImage:
-		*s = FanboxPostBodyBlocksItemTypeImage
-	case FanboxPostBodyBlocksItemTypeURLEmbed:
-		*s = FanboxPostBodyBlocksItemTypeURLEmbed
-	default:
-		*s = FanboxPostBodyBlocksItemType(v)
-	}
-
-	return nil
-}
-
-// MarshalJSON implements stdjson.Marshaler.
-func (s FanboxPostBodyBlocksItemType) MarshalJSON() ([]byte, error) {
-	e := jx.Encoder{}
-	s.Encode(&e)
-	return e.Bytes(), nil
-}
-
-// UnmarshalJSON implements stdjson.Unmarshaler.
-func (s *FanboxPostBodyBlocksItemType) UnmarshalJSON(data []byte) error {
-	d := jx.DecodeBytes(data)
-	return s.Decode(d)
-}
-
-// Encode implements json.Marshaler.
-func (s FanboxPostBodyImageMap) Encode(e *jx.Encoder) {
-	e.ObjStart()
-	s.encodeFields(e)
-	e.ObjEnd()
-}
-
-// encodeFields implements json.Marshaler.
-func (s FanboxPostBodyImageMap) encodeFields(e *jx.Encoder) {
-	for k, elem := range s {
-		e.FieldStart(k)
-
-		elem.Encode(e)
-	}
-}
-
-// Decode decodes FanboxPostBodyImageMap from json.
-func (s *FanboxPostBodyImageMap) Decode(d *jx.Decoder) error {
-	if s == nil {
-		return errors.New("invalid: unable to decode FanboxPostBodyImageMap to nil")
-	}
-	m := s.init()
-	if err := d.ObjBytes(func(d *jx.Decoder, k []byte) error {
-		var elem FanboxPostBodyImageMapItem
-		if err := func() error {
-			if err := elem.Decode(d); err != nil {
-				return err
-			}
-			return nil
-		}(); err != nil {
-			return errors.Wrapf(err, "decode field %q", k)
-		}
-		m[string(k)] = elem
-		return nil
-	}); err != nil {
-		return errors.Wrap(err, "decode FanboxPostBodyImageMap")
-	}
-
-	return nil
-}
-
-// MarshalJSON implements stdjson.Marshaler.
-func (s FanboxPostBodyImageMap) MarshalJSON() ([]byte, error) {
-	e := jx.Encoder{}
-	s.Encode(&e)
-	return e.Bytes(), nil
-}
-
-// UnmarshalJSON implements stdjson.Unmarshaler.
-func (s *FanboxPostBodyImageMap) UnmarshalJSON(data []byte) error {
-	d := jx.DecodeBytes(data)
-	return s.Decode(d)
-}
-
-// Encode implements json.Marshaler.
-func (s *FanboxPostBodyImageMapItem) Encode(e *jx.Encoder) {
-	e.ObjStart()
-	s.encodeFields(e)
-	e.ObjEnd()
-}
-
-// encodeFields encodes fields.
-func (s *FanboxPostBodyImageMapItem) encodeFields(e *jx.Encoder) {
-	{
-		if s.ID.Set {
-			e.FieldStart("id")
-			s.ID.Encode(e)
-		}
-	}
-	{
-		if s.Extension.Set {
-			e.FieldStart("extension")
-			s.Extension.Encode(e)
-		}
-	}
-	{
-		if s.OriginalUrl.Set {
-			e.FieldStart("originalUrl")
-			s.OriginalUrl.Encode(e)
-		}
-	}
-	{
-		if s.ThumbnailUrl.Set {
-			e.FieldStart("thumbnailUrl")
-			s.ThumbnailUrl.Encode(e)
-		}
-	}
-}
-
-var jsonFieldsNameOfFanboxPostBodyImageMapItem = [4]string{
-	0: "id",
-	1: "extension",
-	2: "originalUrl",
-	3: "thumbnailUrl",
-}
-
-// Decode decodes FanboxPostBodyImageMapItem from json.
-func (s *FanboxPostBodyImageMapItem) Decode(d *jx.Decoder) error {
-	if s == nil {
-		return errors.New("invalid: unable to decode FanboxPostBodyImageMapItem to nil")
-	}
-
-	if err := d.ObjBytes(func(d *jx.Decoder, k []byte) error {
-		switch string(k) {
-		case "id":
-			if err := func() error {
-				s.ID.Reset()
-				if err := s.ID.Decode(d); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return errors.Wrap(err, "decode field \"id\"")
-			}
-		case "extension":
-			if err := func() error {
-				s.Extension.Reset()
-				if err := s.Extension.Decode(d); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return errors.Wrap(err, "decode field \"extension\"")
-			}
-		case "originalUrl":
-			if err := func() error {
-				s.OriginalUrl.Reset()
-				if err := s.OriginalUrl.Decode(d); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return errors.Wrap(err, "decode field \"originalUrl\"")
-			}
-		case "thumbnailUrl":
-			if err := func() error {
-				s.ThumbnailUrl.Reset()
-				if err := s.ThumbnailUrl.Decode(d); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return errors.Wrap(err, "decode field \"thumbnailUrl\"")
-			}
-		default:
-			return d.Skip()
-		}
-		return nil
-	}); err != nil {
-		return errors.Wrap(err, "decode FanboxPostBodyImageMapItem")
-	}
-
-	return nil
-}
-
-// MarshalJSON implements stdjson.Marshaler.
-func (s *FanboxPostBodyImageMapItem) MarshalJSON() ([]byte, error) {
-	e := jx.Encoder{}
-	s.Encode(&e)
-	return e.Bytes(), nil
-}
-
-// UnmarshalJSON implements stdjson.Unmarshaler.
-func (s *FanboxPostBodyImageMapItem) UnmarshalJSON(data []byte) error {
-	d := jx.DecodeBytes(data)
-	return s.Decode(d)
-}
-
-// Encode implements json.Marshaler.
-func (s FanboxPostBodyUrlEmbedMap) Encode(e *jx.Encoder) {
-	e.ObjStart()
-	s.encodeFields(e)
-	e.ObjEnd()
-}
-
-// encodeFields implements json.Marshaler.
-func (s FanboxPostBodyUrlEmbedMap) encodeFields(e *jx.Encoder) {
-	for k, elem := range s {
-		e.FieldStart(k)
-
-		elem.Encode(e)
-	}
-}
-
-// Decode decodes FanboxPostBodyUrlEmbedMap from json.
-func (s *FanboxPostBodyUrlEmbedMap) Decode(d *jx.Decoder) error {
-	if s == nil {
-		return errors.New("invalid: unable to decode FanboxPostBodyUrlEmbedMap to nil")
-	}
-	m := s.init()
-	if err := d.ObjBytes(func(d *jx.Decoder, k []byte) error {
-		var elem FanboxPostBodyUrlEmbedMapItem
-		if err := func() error {
-			if err := elem.Decode(d); err != nil {
-				return err
-			}
-			return nil
-		}(); err != nil {
-			return errors.Wrapf(err, "decode field %q", k)
-		}
-		m[string(k)] = elem
-		return nil
-	}); err != nil {
-		return errors.Wrap(err, "decode FanboxPostBodyUrlEmbedMap")
-	}
-
-	return nil
-}
-
-// MarshalJSON implements stdjson.Marshaler.
-func (s FanboxPostBodyUrlEmbedMap) MarshalJSON() ([]byte, error) {
-	e := jx.Encoder{}
-	s.Encode(&e)
-	return e.Bytes(), nil
-}
-
-// UnmarshalJSON implements stdjson.Unmarshaler.
-func (s *FanboxPostBodyUrlEmbedMap) UnmarshalJSON(data []byte) error {
-	d := jx.DecodeBytes(data)
-	return s.Decode(d)
-}
-
-// Encode implements json.Marshaler.
-func (s *FanboxPostBodyUrlEmbedMapItem) Encode(e *jx.Encoder) {
-	e.ObjStart()
-	s.encodeFields(e)
-	e.ObjEnd()
-}
-
-// encodeFields encodes fields.
-func (s *FanboxPostBodyUrlEmbedMapItem) encodeFields(e *jx.Encoder) {
-	{
-		if s.ID.Set {
-			e.FieldStart("id")
-			s.ID.Encode(e)
-		}
-	}
-	{
-		if s.Type.Set {
-			e.FieldStart("type")
-			s.Type.Encode(e)
-		}
-	}
-	{
-		if s.HTML.Set {
-			e.FieldStart("html")
-			s.HTML.Encode(e)
-		}
-	}
-	{
-		if s.URL.Set {
-			e.FieldStart("url")
-			s.URL.Encode(e)
-		}
-	}
-	{
-		if s.PostInfo.Set {
-			e.FieldStart("post_info")
-			s.PostInfo.Encode(e)
-		}
-	}
-}
-
-var jsonFieldsNameOfFanboxPostBodyUrlEmbedMapItem = [5]string{
-	0: "id",
-	1: "type",
-	2: "html",
-	3: "url",
-	4: "post_info",
-}
-
-// Decode decodes FanboxPostBodyUrlEmbedMapItem from json.
-func (s *FanboxPostBodyUrlEmbedMapItem) Decode(d *jx.Decoder) error {
-	if s == nil {
-		return errors.New("invalid: unable to decode FanboxPostBodyUrlEmbedMapItem to nil")
-	}
-
-	if err := d.ObjBytes(func(d *jx.Decoder, k []byte) error {
-		switch string(k) {
-		case "id":
-			if err := func() error {
-				s.ID.Reset()
-				if err := s.ID.Decode(d); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return errors.Wrap(err, "decode field \"id\"")
-			}
-		case "type":
-			if err := func() error {
-				s.Type.Reset()
-				if err := s.Type.Decode(d); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return errors.Wrap(err, "decode field \"type\"")
-			}
-		case "html":
-			if err := func() error {
-				s.HTML.Reset()
-				if err := s.HTML.Decode(d); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return errors.Wrap(err, "decode field \"html\"")
-			}
-		case "url":
-			if err := func() error {
-				s.URL.Reset()
-				if err := s.URL.Decode(d); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return errors.Wrap(err, "decode field \"url\"")
-			}
-		case "post_info":
-			if err := func() error {
-				s.PostInfo.Reset()
-				if err := s.PostInfo.Decode(d); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return errors.Wrap(err, "decode field \"post_info\"")
-			}
-		default:
-			return d.Skip()
-		}
-		return nil
-	}); err != nil {
-		return errors.Wrap(err, "decode FanboxPostBodyUrlEmbedMapItem")
-	}
-
-	return nil
-}
-
-// MarshalJSON implements stdjson.Marshaler.
-func (s *FanboxPostBodyUrlEmbedMapItem) MarshalJSON() ([]byte, error) {
-	e := jx.Encoder{}
-	s.Encode(&e)
-	return e.Bytes(), nil
-}
-
-// UnmarshalJSON implements stdjson.Unmarshaler.
-func (s *FanboxPostBodyUrlEmbedMapItem) UnmarshalJSON(data []byte) error {
-	d := jx.DecodeBytes(data)
-	return s.Decode(d)
-}
-
-// Encode implements json.Marshaler.
-func (s *FanboxPostBodyUrlEmbedMapItemPostInfo) Encode(e *jx.Encoder) {
-	e.ObjStart()
-	s.encodeFields(e)
-	e.ObjEnd()
-}
-
-// encodeFields encodes fields.
-func (s *FanboxPostBodyUrlEmbedMapItemPostInfo) encodeFields(e *jx.Encoder) {
-	{
-		if s.ID.Set {
-			e.FieldStart("id")
-			s.ID.Encode(e)
-		}
-	}
-	{
-		if s.CreatorId.Set {
-			e.FieldStart("creatorId")
-			s.CreatorId.Encode(e)
-		}
-	}
-}
-
-var jsonFieldsNameOfFanboxPostBodyUrlEmbedMapItemPostInfo = [2]string{
-	0: "id",
-	1: "creatorId",
-}
-
-// Decode decodes FanboxPostBodyUrlEmbedMapItemPostInfo from json.
-func (s *FanboxPostBodyUrlEmbedMapItemPostInfo) Decode(d *jx.Decoder) error {
-	if s == nil {
-		return errors.New("invalid: unable to decode FanboxPostBodyUrlEmbedMapItemPostInfo to nil")
-	}
-
-	if err := d.ObjBytes(func(d *jx.Decoder, k []byte) error {
-		switch string(k) {
-		case "id":
-			if err := func() error {
-				s.ID.Reset()
-				if err := s.ID.Decode(d); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return errors.Wrap(err, "decode field \"id\"")
-			}
-		case "creatorId":
-			if err := func() error {
-				s.CreatorId.Reset()
-				if err := s.CreatorId.Decode(d); err != nil {
-					return err
-				}
-				return nil
-			}(); err != nil {
-				return errors.Wrap(err, "decode field \"creatorId\"")
-			}
-		default:
-			return d.Skip()
-		}
-		return nil
-	}); err != nil {
-		return errors.Wrap(err, "decode FanboxPostBodyUrlEmbedMapItemPostInfo")
-	}
-
-	return nil
-}
-
-// MarshalJSON implements stdjson.Marshaler.
-func (s *FanboxPostBodyUrlEmbedMapItemPostInfo) MarshalJSON() ([]byte, error) {
-	e := jx.Encoder{}
-	s.Encode(&e)
-	return e.Bytes(), nil
-}
-
-// UnmarshalJSON implements stdjson.Unmarshaler.
-func (s *FanboxPostBodyUrlEmbedMapItemPostInfo) UnmarshalJSON(data []byte) error {
-	d := jx.DecodeBytes(data)
-	return s.Decode(d)
-}
-
-// Encode encodes FanboxPostBodyUrlEmbedMapItemType as json.
-func (s FanboxPostBodyUrlEmbedMapItemType) Encode(e *jx.Encoder) {
-	e.Str(string(s))
-}
-
-// Decode decodes FanboxPostBodyUrlEmbedMapItemType from json.
-func (s *FanboxPostBodyUrlEmbedMapItemType) Decode(d *jx.Decoder) error {
-	if s == nil {
-		return errors.New("invalid: unable to decode FanboxPostBodyUrlEmbedMapItemType to nil")
-	}
-	v, err := d.StrBytes()
-	if err != nil {
-		return err
-	}
-	// Try to use constant string.
-	switch FanboxPostBodyUrlEmbedMapItemType(v) {
-	case FanboxPostBodyUrlEmbedMapItemTypeHTMLCard:
-		*s = FanboxPostBodyUrlEmbedMapItemTypeHTMLCard
-	case FanboxPostBodyUrlEmbedMapItemTypeHTML:
-		*s = FanboxPostBodyUrlEmbedMapItemTypeHTML
-	case FanboxPostBodyUrlEmbedMapItemTypeFanboxPost:
-		*s = FanboxPostBodyUrlEmbedMapItemTypeFanboxPost
-	case FanboxPostBodyUrlEmbedMapItemTypeDefault:
-		*s = FanboxPostBodyUrlEmbedMapItemTypeDefault
-	default:
-		*s = FanboxPostBodyUrlEmbedMapItemType(v)
-	}
-
-	return nil
-}
-
-// MarshalJSON implements stdjson.Marshaler.
-func (s FanboxPostBodyUrlEmbedMapItemType) MarshalJSON() ([]byte, error) {
-	e := jx.Encoder{}
-	s.Encode(&e)
-	return e.Bytes(), nil
-}
-
-// UnmarshalJSON implements stdjson.Unmarshaler.
-func (s *FanboxPostBodyUrlEmbedMapItemType) UnmarshalJSON(data []byte) error {
-	d := jx.DecodeBytes(data)
-	return s.Decode(d)
-}
-
-// Encode encodes FanboxPostStatus as json.
-func (s FanboxPostStatus) Encode(e *jx.Encoder) {
-	e.Str(string(s))
-}
-
-// Decode decodes FanboxPostStatus from json.
-func (s *FanboxPostStatus) Decode(d *jx.Decoder) error {
-	if s == nil {
-		return errors.New("invalid: unable to decode FanboxPostStatus to nil")
-	}
-	v, err := d.StrBytes()
-	if err != nil {
-		return err
-	}
-	// Try to use constant string.
-	switch FanboxPostStatus(v) {
-	case FanboxPostStatusDraft:
-		*s = FanboxPostStatusDraft
-	case FanboxPostStatusPublished:
-		*s = FanboxPostStatusPublished
-	default:
-		*s = FanboxPostStatus(v)
-	}
-
-	return nil
-}
-
-// MarshalJSON implements stdjson.Marshaler.
-func (s FanboxPostStatus) MarshalJSON() ([]byte, error) {
-	e := jx.Encoder{}
-	s.Encode(&e)
-	return e.Bytes(), nil
-}
-
-// UnmarshalJSON implements stdjson.Unmarshaler.
-func (s *FanboxPostStatus) UnmarshalJSON(data []byte) error {
-	d := jx.DecodeBytes(data)
-	return s.Decode(d)
-}
-
-// Encode implements json.Marshaler.
 func (s *Get) Encode(e *jx.Encoder) {
 	e.ObjStart()
 	s.encodeFields(e)
@@ -1500,9 +410,9 @@ func (s *List) Decode(d *jx.Decoder) error {
 		switch string(k) {
 		case "body":
 			if err := func() error {
-				s.Body = make([]FanboxPost, 0)
+				s.Body = make([]Post, 0)
 				if err := d.Arr(func(d *jx.Decoder) error {
-					var elem FanboxPost
+					var elem Post
 					if err := elem.Decode(d); err != nil {
 						return err
 					}
@@ -1605,272 +515,6 @@ func (s *OptCreatePostReq) UnmarshalJSON(data []byte) error {
 	return s.Decode(d)
 }
 
-// Encode encodes FanboxPost as json.
-func (o OptFanboxPost) Encode(e *jx.Encoder) {
-	if !o.Set {
-		return
-	}
-	o.Value.Encode(e)
-}
-
-// Decode decodes FanboxPost from json.
-func (o *OptFanboxPost) Decode(d *jx.Decoder) error {
-	if o == nil {
-		return errors.New("invalid: unable to decode OptFanboxPost to nil")
-	}
-	o.Set = true
-	if err := o.Value.Decode(d); err != nil {
-		return err
-	}
-	return nil
-}
-
-// MarshalJSON implements stdjson.Marshaler.
-func (s OptFanboxPost) MarshalJSON() ([]byte, error) {
-	e := jx.Encoder{}
-	s.Encode(&e)
-	return e.Bytes(), nil
-}
-
-// UnmarshalJSON implements stdjson.Unmarshaler.
-func (s *OptFanboxPost) UnmarshalJSON(data []byte) error {
-	d := jx.DecodeBytes(data)
-	return s.Decode(d)
-}
-
-// Encode encodes FanboxPostBody as json.
-func (o OptFanboxPostBody) Encode(e *jx.Encoder) {
-	if !o.Set {
-		return
-	}
-	o.Value.Encode(e)
-}
-
-// Decode decodes FanboxPostBody from json.
-func (o *OptFanboxPostBody) Decode(d *jx.Decoder) error {
-	if o == nil {
-		return errors.New("invalid: unable to decode OptFanboxPostBody to nil")
-	}
-	o.Set = true
-	if err := o.Value.Decode(d); err != nil {
-		return err
-	}
-	return nil
-}
-
-// MarshalJSON implements stdjson.Marshaler.
-func (s OptFanboxPostBody) MarshalJSON() ([]byte, error) {
-	e := jx.Encoder{}
-	s.Encode(&e)
-	return e.Bytes(), nil
-}
-
-// UnmarshalJSON implements stdjson.Unmarshaler.
-func (s *OptFanboxPostBody) UnmarshalJSON(data []byte) error {
-	d := jx.DecodeBytes(data)
-	return s.Decode(d)
-}
-
-// Encode encodes FanboxPostBodyBlocksItemType as json.
-func (o OptFanboxPostBodyBlocksItemType) Encode(e *jx.Encoder) {
-	if !o.Set {
-		return
-	}
-	e.Str(string(o.Value))
-}
-
-// Decode decodes FanboxPostBodyBlocksItemType from json.
-func (o *OptFanboxPostBodyBlocksItemType) Decode(d *jx.Decoder) error {
-	if o == nil {
-		return errors.New("invalid: unable to decode OptFanboxPostBodyBlocksItemType to nil")
-	}
-	o.Set = true
-	if err := o.Value.Decode(d); err != nil {
-		return err
-	}
-	return nil
-}
-
-// MarshalJSON implements stdjson.Marshaler.
-func (s OptFanboxPostBodyBlocksItemType) MarshalJSON() ([]byte, error) {
-	e := jx.Encoder{}
-	s.Encode(&e)
-	return e.Bytes(), nil
-}
-
-// UnmarshalJSON implements stdjson.Unmarshaler.
-func (s *OptFanboxPostBodyBlocksItemType) UnmarshalJSON(data []byte) error {
-	d := jx.DecodeBytes(data)
-	return s.Decode(d)
-}
-
-// Encode encodes FanboxPostBodyImageMap as json.
-func (o OptFanboxPostBodyImageMap) Encode(e *jx.Encoder) {
-	if !o.Set {
-		return
-	}
-	o.Value.Encode(e)
-}
-
-// Decode decodes FanboxPostBodyImageMap from json.
-func (o *OptFanboxPostBodyImageMap) Decode(d *jx.Decoder) error {
-	if o == nil {
-		return errors.New("invalid: unable to decode OptFanboxPostBodyImageMap to nil")
-	}
-	o.Set = true
-	o.Value = make(FanboxPostBodyImageMap)
-	if err := o.Value.Decode(d); err != nil {
-		return err
-	}
-	return nil
-}
-
-// MarshalJSON implements stdjson.Marshaler.
-func (s OptFanboxPostBodyImageMap) MarshalJSON() ([]byte, error) {
-	e := jx.Encoder{}
-	s.Encode(&e)
-	return e.Bytes(), nil
-}
-
-// UnmarshalJSON implements stdjson.Unmarshaler.
-func (s *OptFanboxPostBodyImageMap) UnmarshalJSON(data []byte) error {
-	d := jx.DecodeBytes(data)
-	return s.Decode(d)
-}
-
-// Encode encodes FanboxPostBodyUrlEmbedMap as json.
-func (o OptFanboxPostBodyUrlEmbedMap) Encode(e *jx.Encoder) {
-	if !o.Set {
-		return
-	}
-	o.Value.Encode(e)
-}
-
-// Decode decodes FanboxPostBodyUrlEmbedMap from json.
-func (o *OptFanboxPostBodyUrlEmbedMap) Decode(d *jx.Decoder) error {
-	if o == nil {
-		return errors.New("invalid: unable to decode OptFanboxPostBodyUrlEmbedMap to nil")
-	}
-	o.Set = true
-	o.Value = make(FanboxPostBodyUrlEmbedMap)
-	if err := o.Value.Decode(d); err != nil {
-		return err
-	}
-	return nil
-}
-
-// MarshalJSON implements stdjson.Marshaler.
-func (s OptFanboxPostBodyUrlEmbedMap) MarshalJSON() ([]byte, error) {
-	e := jx.Encoder{}
-	s.Encode(&e)
-	return e.Bytes(), nil
-}
-
-// UnmarshalJSON implements stdjson.Unmarshaler.
-func (s *OptFanboxPostBodyUrlEmbedMap) UnmarshalJSON(data []byte) error {
-	d := jx.DecodeBytes(data)
-	return s.Decode(d)
-}
-
-// Encode encodes FanboxPostBodyUrlEmbedMapItemPostInfo as json.
-func (o OptFanboxPostBodyUrlEmbedMapItemPostInfo) Encode(e *jx.Encoder) {
-	if !o.Set {
-		return
-	}
-	o.Value.Encode(e)
-}
-
-// Decode decodes FanboxPostBodyUrlEmbedMapItemPostInfo from json.
-func (o *OptFanboxPostBodyUrlEmbedMapItemPostInfo) Decode(d *jx.Decoder) error {
-	if o == nil {
-		return errors.New("invalid: unable to decode OptFanboxPostBodyUrlEmbedMapItemPostInfo to nil")
-	}
-	o.Set = true
-	if err := o.Value.Decode(d); err != nil {
-		return err
-	}
-	return nil
-}
-
-// MarshalJSON implements stdjson.Marshaler.
-func (s OptFanboxPostBodyUrlEmbedMapItemPostInfo) MarshalJSON() ([]byte, error) {
-	e := jx.Encoder{}
-	s.Encode(&e)
-	return e.Bytes(), nil
-}
-
-// UnmarshalJSON implements stdjson.Unmarshaler.
-func (s *OptFanboxPostBodyUrlEmbedMapItemPostInfo) UnmarshalJSON(data []byte) error {
-	d := jx.DecodeBytes(data)
-	return s.Decode(d)
-}
-
-// Encode encodes FanboxPostBodyUrlEmbedMapItemType as json.
-func (o OptFanboxPostBodyUrlEmbedMapItemType) Encode(e *jx.Encoder) {
-	if !o.Set {
-		return
-	}
-	e.Str(string(o.Value))
-}
-
-// Decode decodes FanboxPostBodyUrlEmbedMapItemType from json.
-func (o *OptFanboxPostBodyUrlEmbedMapItemType) Decode(d *jx.Decoder) error {
-	if o == nil {
-		return errors.New("invalid: unable to decode OptFanboxPostBodyUrlEmbedMapItemType to nil")
-	}
-	o.Set = true
-	if err := o.Value.Decode(d); err != nil {
-		return err
-	}
-	return nil
-}
-
-// MarshalJSON implements stdjson.Marshaler.
-func (s OptFanboxPostBodyUrlEmbedMapItemType) MarshalJSON() ([]byte, error) {
-	e := jx.Encoder{}
-	s.Encode(&e)
-	return e.Bytes(), nil
-}
-
-// UnmarshalJSON implements stdjson.Unmarshaler.
-func (s *OptFanboxPostBodyUrlEmbedMapItemType) UnmarshalJSON(data []byte) error {
-	d := jx.DecodeBytes(data)
-	return s.Decode(d)
-}
-
-// Encode encodes FanboxPostStatus as json.
-func (o OptFanboxPostStatus) Encode(e *jx.Encoder) {
-	if !o.Set {
-		return
-	}
-	e.Str(string(o.Value))
-}
-
-// Decode decodes FanboxPostStatus from json.
-func (o *OptFanboxPostStatus) Decode(d *jx.Decoder) error {
-	if o == nil {
-		return errors.New("invalid: unable to decode OptFanboxPostStatus to nil")
-	}
-	o.Set = true
-	if err := o.Value.Decode(d); err != nil {
-		return err
-	}
-	return nil
-}
-
-// MarshalJSON implements stdjson.Marshaler.
-func (s OptFanboxPostStatus) MarshalJSON() ([]byte, error) {
-	e := jx.Encoder{}
-	s.Encode(&e)
-	return e.Bytes(), nil
-}
-
-// UnmarshalJSON implements stdjson.Unmarshaler.
-func (s *OptFanboxPostStatus) UnmarshalJSON(data []byte) error {
-	d := jx.DecodeBytes(data)
-	return s.Decode(d)
-}
-
 // Encode encodes int as json.
 func (o OptInt) Encode(e *jx.Encoder) {
 	if !o.Set {
@@ -1906,6 +550,272 @@ func (s *OptInt) UnmarshalJSON(data []byte) error {
 	return s.Decode(d)
 }
 
+// Encode encodes Post as json.
+func (o OptPost) Encode(e *jx.Encoder) {
+	if !o.Set {
+		return
+	}
+	o.Value.Encode(e)
+}
+
+// Decode decodes Post from json.
+func (o *OptPost) Decode(d *jx.Decoder) error {
+	if o == nil {
+		return errors.New("invalid: unable to decode OptPost to nil")
+	}
+	o.Set = true
+	if err := o.Value.Decode(d); err != nil {
+		return err
+	}
+	return nil
+}
+
+// MarshalJSON implements stdjson.Marshaler.
+func (s OptPost) MarshalJSON() ([]byte, error) {
+	e := jx.Encoder{}
+	s.Encode(&e)
+	return e.Bytes(), nil
+}
+
+// UnmarshalJSON implements stdjson.Unmarshaler.
+func (s *OptPost) UnmarshalJSON(data []byte) error {
+	d := jx.DecodeBytes(data)
+	return s.Decode(d)
+}
+
+// Encode encodes PostBody as json.
+func (o OptPostBody) Encode(e *jx.Encoder) {
+	if !o.Set {
+		return
+	}
+	o.Value.Encode(e)
+}
+
+// Decode decodes PostBody from json.
+func (o *OptPostBody) Decode(d *jx.Decoder) error {
+	if o == nil {
+		return errors.New("invalid: unable to decode OptPostBody to nil")
+	}
+	o.Set = true
+	if err := o.Value.Decode(d); err != nil {
+		return err
+	}
+	return nil
+}
+
+// MarshalJSON implements stdjson.Marshaler.
+func (s OptPostBody) MarshalJSON() ([]byte, error) {
+	e := jx.Encoder{}
+	s.Encode(&e)
+	return e.Bytes(), nil
+}
+
+// UnmarshalJSON implements stdjson.Unmarshaler.
+func (s *OptPostBody) UnmarshalJSON(data []byte) error {
+	d := jx.DecodeBytes(data)
+	return s.Decode(d)
+}
+
+// Encode encodes PostBodyBlocksItemType as json.
+func (o OptPostBodyBlocksItemType) Encode(e *jx.Encoder) {
+	if !o.Set {
+		return
+	}
+	e.Str(string(o.Value))
+}
+
+// Decode decodes PostBodyBlocksItemType from json.
+func (o *OptPostBodyBlocksItemType) Decode(d *jx.Decoder) error {
+	if o == nil {
+		return errors.New("invalid: unable to decode OptPostBodyBlocksItemType to nil")
+	}
+	o.Set = true
+	if err := o.Value.Decode(d); err != nil {
+		return err
+	}
+	return nil
+}
+
+// MarshalJSON implements stdjson.Marshaler.
+func (s OptPostBodyBlocksItemType) MarshalJSON() ([]byte, error) {
+	e := jx.Encoder{}
+	s.Encode(&e)
+	return e.Bytes(), nil
+}
+
+// UnmarshalJSON implements stdjson.Unmarshaler.
+func (s *OptPostBodyBlocksItemType) UnmarshalJSON(data []byte) error {
+	d := jx.DecodeBytes(data)
+	return s.Decode(d)
+}
+
+// Encode encodes PostBodyImageMap as json.
+func (o OptPostBodyImageMap) Encode(e *jx.Encoder) {
+	if !o.Set {
+		return
+	}
+	o.Value.Encode(e)
+}
+
+// Decode decodes PostBodyImageMap from json.
+func (o *OptPostBodyImageMap) Decode(d *jx.Decoder) error {
+	if o == nil {
+		return errors.New("invalid: unable to decode OptPostBodyImageMap to nil")
+	}
+	o.Set = true
+	o.Value = make(PostBodyImageMap)
+	if err := o.Value.Decode(d); err != nil {
+		return err
+	}
+	return nil
+}
+
+// MarshalJSON implements stdjson.Marshaler.
+func (s OptPostBodyImageMap) MarshalJSON() ([]byte, error) {
+	e := jx.Encoder{}
+	s.Encode(&e)
+	return e.Bytes(), nil
+}
+
+// UnmarshalJSON implements stdjson.Unmarshaler.
+func (s *OptPostBodyImageMap) UnmarshalJSON(data []byte) error {
+	d := jx.DecodeBytes(data)
+	return s.Decode(d)
+}
+
+// Encode encodes PostBodyUrlEmbedMap as json.
+func (o OptPostBodyUrlEmbedMap) Encode(e *jx.Encoder) {
+	if !o.Set {
+		return
+	}
+	o.Value.Encode(e)
+}
+
+// Decode decodes PostBodyUrlEmbedMap from json.
+func (o *OptPostBodyUrlEmbedMap) Decode(d *jx.Decoder) error {
+	if o == nil {
+		return errors.New("invalid: unable to decode OptPostBodyUrlEmbedMap to nil")
+	}
+	o.Set = true
+	o.Value = make(PostBodyUrlEmbedMap)
+	if err := o.Value.Decode(d); err != nil {
+		return err
+	}
+	return nil
+}
+
+// MarshalJSON implements stdjson.Marshaler.
+func (s OptPostBodyUrlEmbedMap) MarshalJSON() ([]byte, error) {
+	e := jx.Encoder{}
+	s.Encode(&e)
+	return e.Bytes(), nil
+}
+
+// UnmarshalJSON implements stdjson.Unmarshaler.
+func (s *OptPostBodyUrlEmbedMap) UnmarshalJSON(data []byte) error {
+	d := jx.DecodeBytes(data)
+	return s.Decode(d)
+}
+
+// Encode encodes PostBodyUrlEmbedMapItemPostInfo as json.
+func (o OptPostBodyUrlEmbedMapItemPostInfo) Encode(e *jx.Encoder) {
+	if !o.Set {
+		return
+	}
+	o.Value.Encode(e)
+}
+
+// Decode decodes PostBodyUrlEmbedMapItemPostInfo from json.
+func (o *OptPostBodyUrlEmbedMapItemPostInfo) Decode(d *jx.Decoder) error {
+	if o == nil {
+		return errors.New("invalid: unable to decode OptPostBodyUrlEmbedMapItemPostInfo to nil")
+	}
+	o.Set = true
+	if err := o.Value.Decode(d); err != nil {
+		return err
+	}
+	return nil
+}
+
+// MarshalJSON implements stdjson.Marshaler.
+func (s OptPostBodyUrlEmbedMapItemPostInfo) MarshalJSON() ([]byte, error) {
+	e := jx.Encoder{}
+	s.Encode(&e)
+	return e.Bytes(), nil
+}
+
+// UnmarshalJSON implements stdjson.Unmarshaler.
+func (s *OptPostBodyUrlEmbedMapItemPostInfo) UnmarshalJSON(data []byte) error {
+	d := jx.DecodeBytes(data)
+	return s.Decode(d)
+}
+
+// Encode encodes PostBodyUrlEmbedMapItemType as json.
+func (o OptPostBodyUrlEmbedMapItemType) Encode(e *jx.Encoder) {
+	if !o.Set {
+		return
+	}
+	e.Str(string(o.Value))
+}
+
+// Decode decodes PostBodyUrlEmbedMapItemType from json.
+func (o *OptPostBodyUrlEmbedMapItemType) Decode(d *jx.Decoder) error {
+	if o == nil {
+		return errors.New("invalid: unable to decode OptPostBodyUrlEmbedMapItemType to nil")
+	}
+	o.Set = true
+	if err := o.Value.Decode(d); err != nil {
+		return err
+	}
+	return nil
+}
+
+// MarshalJSON implements stdjson.Marshaler.
+func (s OptPostBodyUrlEmbedMapItemType) MarshalJSON() ([]byte, error) {
+	e := jx.Encoder{}
+	s.Encode(&e)
+	return e.Bytes(), nil
+}
+
+// UnmarshalJSON implements stdjson.Unmarshaler.
+func (s *OptPostBodyUrlEmbedMapItemType) UnmarshalJSON(data []byte) error {
+	d := jx.DecodeBytes(data)
+	return s.Decode(d)
+}
+
+// Encode encodes PostStatus as json.
+func (o OptPostStatus) Encode(e *jx.Encoder) {
+	if !o.Set {
+		return
+	}
+	e.Str(string(o.Value))
+}
+
+// Decode decodes PostStatus from json.
+func (o *OptPostStatus) Decode(d *jx.Decoder) error {
+	if o == nil {
+		return errors.New("invalid: unable to decode OptPostStatus to nil")
+	}
+	o.Set = true
+	if err := o.Value.Decode(d); err != nil {
+		return err
+	}
+	return nil
+}
+
+// MarshalJSON implements stdjson.Marshaler.
+func (s OptPostStatus) MarshalJSON() ([]byte, error) {
+	e := jx.Encoder{}
+	s.Encode(&e)
+	return e.Bytes(), nil
+}
+
+// UnmarshalJSON implements stdjson.Unmarshaler.
+func (s *OptPostStatus) UnmarshalJSON(data []byte) error {
+	d := jx.DecodeBytes(data)
+	return s.Decode(d)
+}
+
 // Encode encodes string as json.
 func (o OptString) Encode(e *jx.Encoder) {
 	if !o.Set {
@@ -1937,6 +847,1096 @@ func (s OptString) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON implements stdjson.Unmarshaler.
 func (s *OptString) UnmarshalJSON(data []byte) error {
+	d := jx.DecodeBytes(data)
+	return s.Decode(d)
+}
+
+// Encode implements json.Marshaler.
+func (s *Post) Encode(e *jx.Encoder) {
+	e.ObjStart()
+	s.encodeFields(e)
+	e.ObjEnd()
+}
+
+// encodeFields encodes fields.
+func (s *Post) encodeFields(e *jx.Encoder) {
+	{
+		if s.ID.Set {
+			e.FieldStart("id")
+			s.ID.Encode(e)
+		}
+	}
+	{
+		if s.Title.Set {
+			e.FieldStart("title")
+			s.Title.Encode(e)
+		}
+	}
+	{
+		if s.Status.Set {
+			e.FieldStart("status")
+			s.Status.Encode(e)
+		}
+	}
+	{
+		if s.Permalink.Set {
+			e.FieldStart("permalink")
+			s.Permalink.Encode(e)
+		}
+	}
+	{
+		if s.FeeRequired.Set {
+			e.FieldStart("feeRequired")
+			s.FeeRequired.Encode(e)
+		}
+	}
+	{
+		if s.UpdatedAt.Set {
+			e.FieldStart("updatedAt")
+			s.UpdatedAt.Encode(e)
+		}
+	}
+	{
+		if s.PublishedAt.Set {
+			e.FieldStart("publishedAt")
+			s.PublishedAt.Encode(e)
+		}
+	}
+	{
+		if s.Body.Set {
+			e.FieldStart("body")
+			s.Body.Encode(e)
+		}
+	}
+}
+
+var jsonFieldsNameOfPost = [8]string{
+	0: "id",
+	1: "title",
+	2: "status",
+	3: "permalink",
+	4: "feeRequired",
+	5: "updatedAt",
+	6: "publishedAt",
+	7: "body",
+}
+
+// Decode decodes Post from json.
+func (s *Post) Decode(d *jx.Decoder) error {
+	if s == nil {
+		return errors.New("invalid: unable to decode Post to nil")
+	}
+
+	if err := d.ObjBytes(func(d *jx.Decoder, k []byte) error {
+		switch string(k) {
+		case "id":
+			if err := func() error {
+				s.ID.Reset()
+				if err := s.ID.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"id\"")
+			}
+		case "title":
+			if err := func() error {
+				s.Title.Reset()
+				if err := s.Title.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"title\"")
+			}
+		case "status":
+			if err := func() error {
+				s.Status.Reset()
+				if err := s.Status.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"status\"")
+			}
+		case "permalink":
+			if err := func() error {
+				s.Permalink.Reset()
+				if err := s.Permalink.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"permalink\"")
+			}
+		case "feeRequired":
+			if err := func() error {
+				s.FeeRequired.Reset()
+				if err := s.FeeRequired.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"feeRequired\"")
+			}
+		case "updatedAt":
+			if err := func() error {
+				s.UpdatedAt.Reset()
+				if err := s.UpdatedAt.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"updatedAt\"")
+			}
+		case "publishedAt":
+			if err := func() error {
+				s.PublishedAt.Reset()
+				if err := s.PublishedAt.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"publishedAt\"")
+			}
+		case "body":
+			if err := func() error {
+				s.Body.Reset()
+				if err := s.Body.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"body\"")
+			}
+		default:
+			return d.Skip()
+		}
+		return nil
+	}); err != nil {
+		return errors.Wrap(err, "decode Post")
+	}
+
+	return nil
+}
+
+// MarshalJSON implements stdjson.Marshaler.
+func (s *Post) MarshalJSON() ([]byte, error) {
+	e := jx.Encoder{}
+	s.Encode(&e)
+	return e.Bytes(), nil
+}
+
+// UnmarshalJSON implements stdjson.Unmarshaler.
+func (s *Post) UnmarshalJSON(data []byte) error {
+	d := jx.DecodeBytes(data)
+	return s.Decode(d)
+}
+
+// Encode implements json.Marshaler.
+func (s *PostBody) Encode(e *jx.Encoder) {
+	e.ObjStart()
+	s.encodeFields(e)
+	e.ObjEnd()
+}
+
+// encodeFields encodes fields.
+func (s *PostBody) encodeFields(e *jx.Encoder) {
+	{
+		if s.Blocks != nil {
+			e.FieldStart("blocks")
+			e.ArrStart()
+			for _, elem := range s.Blocks {
+				elem.Encode(e)
+			}
+			e.ArrEnd()
+		}
+	}
+	{
+		if s.ImageMap.Set {
+			e.FieldStart("imageMap")
+			s.ImageMap.Encode(e)
+		}
+	}
+	{
+		if s.UrlEmbedMap.Set {
+			e.FieldStart("urlEmbedMap")
+			s.UrlEmbedMap.Encode(e)
+		}
+	}
+}
+
+var jsonFieldsNameOfPostBody = [3]string{
+	0: "blocks",
+	1: "imageMap",
+	2: "urlEmbedMap",
+}
+
+// Decode decodes PostBody from json.
+func (s *PostBody) Decode(d *jx.Decoder) error {
+	if s == nil {
+		return errors.New("invalid: unable to decode PostBody to nil")
+	}
+
+	if err := d.ObjBytes(func(d *jx.Decoder, k []byte) error {
+		switch string(k) {
+		case "blocks":
+			if err := func() error {
+				s.Blocks = make([]PostBodyBlocksItem, 0)
+				if err := d.Arr(func(d *jx.Decoder) error {
+					var elem PostBodyBlocksItem
+					if err := elem.Decode(d); err != nil {
+						return err
+					}
+					s.Blocks = append(s.Blocks, elem)
+					return nil
+				}); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"blocks\"")
+			}
+		case "imageMap":
+			if err := func() error {
+				s.ImageMap.Reset()
+				if err := s.ImageMap.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"imageMap\"")
+			}
+		case "urlEmbedMap":
+			if err := func() error {
+				s.UrlEmbedMap.Reset()
+				if err := s.UrlEmbedMap.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"urlEmbedMap\"")
+			}
+		default:
+			return d.Skip()
+		}
+		return nil
+	}); err != nil {
+		return errors.Wrap(err, "decode PostBody")
+	}
+
+	return nil
+}
+
+// MarshalJSON implements stdjson.Marshaler.
+func (s *PostBody) MarshalJSON() ([]byte, error) {
+	e := jx.Encoder{}
+	s.Encode(&e)
+	return e.Bytes(), nil
+}
+
+// UnmarshalJSON implements stdjson.Unmarshaler.
+func (s *PostBody) UnmarshalJSON(data []byte) error {
+	d := jx.DecodeBytes(data)
+	return s.Decode(d)
+}
+
+// Encode implements json.Marshaler.
+func (s *PostBodyBlocksItem) Encode(e *jx.Encoder) {
+	e.ObjStart()
+	s.encodeFields(e)
+	e.ObjEnd()
+}
+
+// encodeFields encodes fields.
+func (s *PostBodyBlocksItem) encodeFields(e *jx.Encoder) {
+	{
+		if s.Type.Set {
+			e.FieldStart("type")
+			s.Type.Encode(e)
+		}
+	}
+	{
+		if s.Text.Set {
+			e.FieldStart("text")
+			s.Text.Encode(e)
+		}
+	}
+	{
+		if s.ImageId.Set {
+			e.FieldStart("imageId")
+			s.ImageId.Encode(e)
+		}
+	}
+	{
+		if s.UrlEmbedId.Set {
+			e.FieldStart("urlEmbedId")
+			s.UrlEmbedId.Encode(e)
+		}
+	}
+	{
+		if s.Styles != nil {
+			e.FieldStart("styles")
+			e.ArrStart()
+			for _, elem := range s.Styles {
+				elem.Encode(e)
+			}
+			e.ArrEnd()
+		}
+	}
+}
+
+var jsonFieldsNameOfPostBodyBlocksItem = [5]string{
+	0: "type",
+	1: "text",
+	2: "imageId",
+	3: "urlEmbedId",
+	4: "styles",
+}
+
+// Decode decodes PostBodyBlocksItem from json.
+func (s *PostBodyBlocksItem) Decode(d *jx.Decoder) error {
+	if s == nil {
+		return errors.New("invalid: unable to decode PostBodyBlocksItem to nil")
+	}
+
+	if err := d.ObjBytes(func(d *jx.Decoder, k []byte) error {
+		switch string(k) {
+		case "type":
+			if err := func() error {
+				s.Type.Reset()
+				if err := s.Type.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"type\"")
+			}
+		case "text":
+			if err := func() error {
+				s.Text.Reset()
+				if err := s.Text.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"text\"")
+			}
+		case "imageId":
+			if err := func() error {
+				s.ImageId.Reset()
+				if err := s.ImageId.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"imageId\"")
+			}
+		case "urlEmbedId":
+			if err := func() error {
+				s.UrlEmbedId.Reset()
+				if err := s.UrlEmbedId.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"urlEmbedId\"")
+			}
+		case "styles":
+			if err := func() error {
+				s.Styles = make([]PostBodyBlocksItemStylesItem, 0)
+				if err := d.Arr(func(d *jx.Decoder) error {
+					var elem PostBodyBlocksItemStylesItem
+					if err := elem.Decode(d); err != nil {
+						return err
+					}
+					s.Styles = append(s.Styles, elem)
+					return nil
+				}); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"styles\"")
+			}
+		default:
+			return d.Skip()
+		}
+		return nil
+	}); err != nil {
+		return errors.Wrap(err, "decode PostBodyBlocksItem")
+	}
+
+	return nil
+}
+
+// MarshalJSON implements stdjson.Marshaler.
+func (s *PostBodyBlocksItem) MarshalJSON() ([]byte, error) {
+	e := jx.Encoder{}
+	s.Encode(&e)
+	return e.Bytes(), nil
+}
+
+// UnmarshalJSON implements stdjson.Unmarshaler.
+func (s *PostBodyBlocksItem) UnmarshalJSON(data []byte) error {
+	d := jx.DecodeBytes(data)
+	return s.Decode(d)
+}
+
+// Encode implements json.Marshaler.
+func (s *PostBodyBlocksItemStylesItem) Encode(e *jx.Encoder) {
+	e.ObjStart()
+	s.encodeFields(e)
+	e.ObjEnd()
+}
+
+// encodeFields encodes fields.
+func (s *PostBodyBlocksItemStylesItem) encodeFields(e *jx.Encoder) {
+	{
+		if s.Type.Set {
+			e.FieldStart("type")
+			s.Type.Encode(e)
+		}
+	}
+	{
+		if s.Offset.Set {
+			e.FieldStart("offset")
+			s.Offset.Encode(e)
+		}
+	}
+	{
+		if s.Length.Set {
+			e.FieldStart("length")
+			s.Length.Encode(e)
+		}
+	}
+}
+
+var jsonFieldsNameOfPostBodyBlocksItemStylesItem = [3]string{
+	0: "type",
+	1: "offset",
+	2: "length",
+}
+
+// Decode decodes PostBodyBlocksItemStylesItem from json.
+func (s *PostBodyBlocksItemStylesItem) Decode(d *jx.Decoder) error {
+	if s == nil {
+		return errors.New("invalid: unable to decode PostBodyBlocksItemStylesItem to nil")
+	}
+
+	if err := d.ObjBytes(func(d *jx.Decoder, k []byte) error {
+		switch string(k) {
+		case "type":
+			if err := func() error {
+				s.Type.Reset()
+				if err := s.Type.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"type\"")
+			}
+		case "offset":
+			if err := func() error {
+				s.Offset.Reset()
+				if err := s.Offset.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"offset\"")
+			}
+		case "length":
+			if err := func() error {
+				s.Length.Reset()
+				if err := s.Length.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"length\"")
+			}
+		default:
+			return d.Skip()
+		}
+		return nil
+	}); err != nil {
+		return errors.Wrap(err, "decode PostBodyBlocksItemStylesItem")
+	}
+
+	return nil
+}
+
+// MarshalJSON implements stdjson.Marshaler.
+func (s *PostBodyBlocksItemStylesItem) MarshalJSON() ([]byte, error) {
+	e := jx.Encoder{}
+	s.Encode(&e)
+	return e.Bytes(), nil
+}
+
+// UnmarshalJSON implements stdjson.Unmarshaler.
+func (s *PostBodyBlocksItemStylesItem) UnmarshalJSON(data []byte) error {
+	d := jx.DecodeBytes(data)
+	return s.Decode(d)
+}
+
+// Encode encodes PostBodyBlocksItemType as json.
+func (s PostBodyBlocksItemType) Encode(e *jx.Encoder) {
+	e.Str(string(s))
+}
+
+// Decode decodes PostBodyBlocksItemType from json.
+func (s *PostBodyBlocksItemType) Decode(d *jx.Decoder) error {
+	if s == nil {
+		return errors.New("invalid: unable to decode PostBodyBlocksItemType to nil")
+	}
+	v, err := d.StrBytes()
+	if err != nil {
+		return err
+	}
+	// Try to use constant string.
+	switch PostBodyBlocksItemType(v) {
+	case PostBodyBlocksItemTypeP:
+		*s = PostBodyBlocksItemTypeP
+	case PostBodyBlocksItemTypeHeader:
+		*s = PostBodyBlocksItemTypeHeader
+	case PostBodyBlocksItemTypeImage:
+		*s = PostBodyBlocksItemTypeImage
+	case PostBodyBlocksItemTypeURLEmbed:
+		*s = PostBodyBlocksItemTypeURLEmbed
+	default:
+		*s = PostBodyBlocksItemType(v)
+	}
+
+	return nil
+}
+
+// MarshalJSON implements stdjson.Marshaler.
+func (s PostBodyBlocksItemType) MarshalJSON() ([]byte, error) {
+	e := jx.Encoder{}
+	s.Encode(&e)
+	return e.Bytes(), nil
+}
+
+// UnmarshalJSON implements stdjson.Unmarshaler.
+func (s *PostBodyBlocksItemType) UnmarshalJSON(data []byte) error {
+	d := jx.DecodeBytes(data)
+	return s.Decode(d)
+}
+
+// Encode implements json.Marshaler.
+func (s PostBodyImageMap) Encode(e *jx.Encoder) {
+	e.ObjStart()
+	s.encodeFields(e)
+	e.ObjEnd()
+}
+
+// encodeFields implements json.Marshaler.
+func (s PostBodyImageMap) encodeFields(e *jx.Encoder) {
+	for k, elem := range s {
+		e.FieldStart(k)
+
+		elem.Encode(e)
+	}
+}
+
+// Decode decodes PostBodyImageMap from json.
+func (s *PostBodyImageMap) Decode(d *jx.Decoder) error {
+	if s == nil {
+		return errors.New("invalid: unable to decode PostBodyImageMap to nil")
+	}
+	m := s.init()
+	if err := d.ObjBytes(func(d *jx.Decoder, k []byte) error {
+		var elem PostBodyImageMapItem
+		if err := func() error {
+			if err := elem.Decode(d); err != nil {
+				return err
+			}
+			return nil
+		}(); err != nil {
+			return errors.Wrapf(err, "decode field %q", k)
+		}
+		m[string(k)] = elem
+		return nil
+	}); err != nil {
+		return errors.Wrap(err, "decode PostBodyImageMap")
+	}
+
+	return nil
+}
+
+// MarshalJSON implements stdjson.Marshaler.
+func (s PostBodyImageMap) MarshalJSON() ([]byte, error) {
+	e := jx.Encoder{}
+	s.Encode(&e)
+	return e.Bytes(), nil
+}
+
+// UnmarshalJSON implements stdjson.Unmarshaler.
+func (s *PostBodyImageMap) UnmarshalJSON(data []byte) error {
+	d := jx.DecodeBytes(data)
+	return s.Decode(d)
+}
+
+// Encode implements json.Marshaler.
+func (s *PostBodyImageMapItem) Encode(e *jx.Encoder) {
+	e.ObjStart()
+	s.encodeFields(e)
+	e.ObjEnd()
+}
+
+// encodeFields encodes fields.
+func (s *PostBodyImageMapItem) encodeFields(e *jx.Encoder) {
+	{
+		if s.ID.Set {
+			e.FieldStart("id")
+			s.ID.Encode(e)
+		}
+	}
+	{
+		if s.Extension.Set {
+			e.FieldStart("extension")
+			s.Extension.Encode(e)
+		}
+	}
+	{
+		if s.OriginalUrl.Set {
+			e.FieldStart("originalUrl")
+			s.OriginalUrl.Encode(e)
+		}
+	}
+	{
+		if s.ThumbnailUrl.Set {
+			e.FieldStart("thumbnailUrl")
+			s.ThumbnailUrl.Encode(e)
+		}
+	}
+}
+
+var jsonFieldsNameOfPostBodyImageMapItem = [4]string{
+	0: "id",
+	1: "extension",
+	2: "originalUrl",
+	3: "thumbnailUrl",
+}
+
+// Decode decodes PostBodyImageMapItem from json.
+func (s *PostBodyImageMapItem) Decode(d *jx.Decoder) error {
+	if s == nil {
+		return errors.New("invalid: unable to decode PostBodyImageMapItem to nil")
+	}
+
+	if err := d.ObjBytes(func(d *jx.Decoder, k []byte) error {
+		switch string(k) {
+		case "id":
+			if err := func() error {
+				s.ID.Reset()
+				if err := s.ID.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"id\"")
+			}
+		case "extension":
+			if err := func() error {
+				s.Extension.Reset()
+				if err := s.Extension.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"extension\"")
+			}
+		case "originalUrl":
+			if err := func() error {
+				s.OriginalUrl.Reset()
+				if err := s.OriginalUrl.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"originalUrl\"")
+			}
+		case "thumbnailUrl":
+			if err := func() error {
+				s.ThumbnailUrl.Reset()
+				if err := s.ThumbnailUrl.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"thumbnailUrl\"")
+			}
+		default:
+			return d.Skip()
+		}
+		return nil
+	}); err != nil {
+		return errors.Wrap(err, "decode PostBodyImageMapItem")
+	}
+
+	return nil
+}
+
+// MarshalJSON implements stdjson.Marshaler.
+func (s *PostBodyImageMapItem) MarshalJSON() ([]byte, error) {
+	e := jx.Encoder{}
+	s.Encode(&e)
+	return e.Bytes(), nil
+}
+
+// UnmarshalJSON implements stdjson.Unmarshaler.
+func (s *PostBodyImageMapItem) UnmarshalJSON(data []byte) error {
+	d := jx.DecodeBytes(data)
+	return s.Decode(d)
+}
+
+// Encode implements json.Marshaler.
+func (s PostBodyUrlEmbedMap) Encode(e *jx.Encoder) {
+	e.ObjStart()
+	s.encodeFields(e)
+	e.ObjEnd()
+}
+
+// encodeFields implements json.Marshaler.
+func (s PostBodyUrlEmbedMap) encodeFields(e *jx.Encoder) {
+	for k, elem := range s {
+		e.FieldStart(k)
+
+		elem.Encode(e)
+	}
+}
+
+// Decode decodes PostBodyUrlEmbedMap from json.
+func (s *PostBodyUrlEmbedMap) Decode(d *jx.Decoder) error {
+	if s == nil {
+		return errors.New("invalid: unable to decode PostBodyUrlEmbedMap to nil")
+	}
+	m := s.init()
+	if err := d.ObjBytes(func(d *jx.Decoder, k []byte) error {
+		var elem PostBodyUrlEmbedMapItem
+		if err := func() error {
+			if err := elem.Decode(d); err != nil {
+				return err
+			}
+			return nil
+		}(); err != nil {
+			return errors.Wrapf(err, "decode field %q", k)
+		}
+		m[string(k)] = elem
+		return nil
+	}); err != nil {
+		return errors.Wrap(err, "decode PostBodyUrlEmbedMap")
+	}
+
+	return nil
+}
+
+// MarshalJSON implements stdjson.Marshaler.
+func (s PostBodyUrlEmbedMap) MarshalJSON() ([]byte, error) {
+	e := jx.Encoder{}
+	s.Encode(&e)
+	return e.Bytes(), nil
+}
+
+// UnmarshalJSON implements stdjson.Unmarshaler.
+func (s *PostBodyUrlEmbedMap) UnmarshalJSON(data []byte) error {
+	d := jx.DecodeBytes(data)
+	return s.Decode(d)
+}
+
+// Encode implements json.Marshaler.
+func (s *PostBodyUrlEmbedMapItem) Encode(e *jx.Encoder) {
+	e.ObjStart()
+	s.encodeFields(e)
+	e.ObjEnd()
+}
+
+// encodeFields encodes fields.
+func (s *PostBodyUrlEmbedMapItem) encodeFields(e *jx.Encoder) {
+	{
+		if s.ID.Set {
+			e.FieldStart("id")
+			s.ID.Encode(e)
+		}
+	}
+	{
+		if s.Type.Set {
+			e.FieldStart("type")
+			s.Type.Encode(e)
+		}
+	}
+	{
+		if s.HTML.Set {
+			e.FieldStart("html")
+			s.HTML.Encode(e)
+		}
+	}
+	{
+		if s.URL.Set {
+			e.FieldStart("url")
+			s.URL.Encode(e)
+		}
+	}
+	{
+		if s.PostInfo.Set {
+			e.FieldStart("post_info")
+			s.PostInfo.Encode(e)
+		}
+	}
+}
+
+var jsonFieldsNameOfPostBodyUrlEmbedMapItem = [5]string{
+	0: "id",
+	1: "type",
+	2: "html",
+	3: "url",
+	4: "post_info",
+}
+
+// Decode decodes PostBodyUrlEmbedMapItem from json.
+func (s *PostBodyUrlEmbedMapItem) Decode(d *jx.Decoder) error {
+	if s == nil {
+		return errors.New("invalid: unable to decode PostBodyUrlEmbedMapItem to nil")
+	}
+
+	if err := d.ObjBytes(func(d *jx.Decoder, k []byte) error {
+		switch string(k) {
+		case "id":
+			if err := func() error {
+				s.ID.Reset()
+				if err := s.ID.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"id\"")
+			}
+		case "type":
+			if err := func() error {
+				s.Type.Reset()
+				if err := s.Type.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"type\"")
+			}
+		case "html":
+			if err := func() error {
+				s.HTML.Reset()
+				if err := s.HTML.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"html\"")
+			}
+		case "url":
+			if err := func() error {
+				s.URL.Reset()
+				if err := s.URL.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"url\"")
+			}
+		case "post_info":
+			if err := func() error {
+				s.PostInfo.Reset()
+				if err := s.PostInfo.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"post_info\"")
+			}
+		default:
+			return d.Skip()
+		}
+		return nil
+	}); err != nil {
+		return errors.Wrap(err, "decode PostBodyUrlEmbedMapItem")
+	}
+
+	return nil
+}
+
+// MarshalJSON implements stdjson.Marshaler.
+func (s *PostBodyUrlEmbedMapItem) MarshalJSON() ([]byte, error) {
+	e := jx.Encoder{}
+	s.Encode(&e)
+	return e.Bytes(), nil
+}
+
+// UnmarshalJSON implements stdjson.Unmarshaler.
+func (s *PostBodyUrlEmbedMapItem) UnmarshalJSON(data []byte) error {
+	d := jx.DecodeBytes(data)
+	return s.Decode(d)
+}
+
+// Encode implements json.Marshaler.
+func (s *PostBodyUrlEmbedMapItemPostInfo) Encode(e *jx.Encoder) {
+	e.ObjStart()
+	s.encodeFields(e)
+	e.ObjEnd()
+}
+
+// encodeFields encodes fields.
+func (s *PostBodyUrlEmbedMapItemPostInfo) encodeFields(e *jx.Encoder) {
+	{
+		if s.ID.Set {
+			e.FieldStart("id")
+			s.ID.Encode(e)
+		}
+	}
+	{
+		if s.CreatorId.Set {
+			e.FieldStart("creatorId")
+			s.CreatorId.Encode(e)
+		}
+	}
+}
+
+var jsonFieldsNameOfPostBodyUrlEmbedMapItemPostInfo = [2]string{
+	0: "id",
+	1: "creatorId",
+}
+
+// Decode decodes PostBodyUrlEmbedMapItemPostInfo from json.
+func (s *PostBodyUrlEmbedMapItemPostInfo) Decode(d *jx.Decoder) error {
+	if s == nil {
+		return errors.New("invalid: unable to decode PostBodyUrlEmbedMapItemPostInfo to nil")
+	}
+
+	if err := d.ObjBytes(func(d *jx.Decoder, k []byte) error {
+		switch string(k) {
+		case "id":
+			if err := func() error {
+				s.ID.Reset()
+				if err := s.ID.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"id\"")
+			}
+		case "creatorId":
+			if err := func() error {
+				s.CreatorId.Reset()
+				if err := s.CreatorId.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"creatorId\"")
+			}
+		default:
+			return d.Skip()
+		}
+		return nil
+	}); err != nil {
+		return errors.Wrap(err, "decode PostBodyUrlEmbedMapItemPostInfo")
+	}
+
+	return nil
+}
+
+// MarshalJSON implements stdjson.Marshaler.
+func (s *PostBodyUrlEmbedMapItemPostInfo) MarshalJSON() ([]byte, error) {
+	e := jx.Encoder{}
+	s.Encode(&e)
+	return e.Bytes(), nil
+}
+
+// UnmarshalJSON implements stdjson.Unmarshaler.
+func (s *PostBodyUrlEmbedMapItemPostInfo) UnmarshalJSON(data []byte) error {
+	d := jx.DecodeBytes(data)
+	return s.Decode(d)
+}
+
+// Encode encodes PostBodyUrlEmbedMapItemType as json.
+func (s PostBodyUrlEmbedMapItemType) Encode(e *jx.Encoder) {
+	e.Str(string(s))
+}
+
+// Decode decodes PostBodyUrlEmbedMapItemType from json.
+func (s *PostBodyUrlEmbedMapItemType) Decode(d *jx.Decoder) error {
+	if s == nil {
+		return errors.New("invalid: unable to decode PostBodyUrlEmbedMapItemType to nil")
+	}
+	v, err := d.StrBytes()
+	if err != nil {
+		return err
+	}
+	// Try to use constant string.
+	switch PostBodyUrlEmbedMapItemType(v) {
+	case PostBodyUrlEmbedMapItemTypeHTMLCard:
+		*s = PostBodyUrlEmbedMapItemTypeHTMLCard
+	case PostBodyUrlEmbedMapItemTypeHTML:
+		*s = PostBodyUrlEmbedMapItemTypeHTML
+	case PostBodyUrlEmbedMapItemTypeFanboxPost:
+		*s = PostBodyUrlEmbedMapItemTypeFanboxPost
+	case PostBodyUrlEmbedMapItemTypeDefault:
+		*s = PostBodyUrlEmbedMapItemTypeDefault
+	default:
+		*s = PostBodyUrlEmbedMapItemType(v)
+	}
+
+	return nil
+}
+
+// MarshalJSON implements stdjson.Marshaler.
+func (s PostBodyUrlEmbedMapItemType) MarshalJSON() ([]byte, error) {
+	e := jx.Encoder{}
+	s.Encode(&e)
+	return e.Bytes(), nil
+}
+
+// UnmarshalJSON implements stdjson.Unmarshaler.
+func (s *PostBodyUrlEmbedMapItemType) UnmarshalJSON(data []byte) error {
+	d := jx.DecodeBytes(data)
+	return s.Decode(d)
+}
+
+// Encode encodes PostStatus as json.
+func (s PostStatus) Encode(e *jx.Encoder) {
+	e.Str(string(s))
+}
+
+// Decode decodes PostStatus from json.
+func (s *PostStatus) Decode(d *jx.Decoder) error {
+	if s == nil {
+		return errors.New("invalid: unable to decode PostStatus to nil")
+	}
+	v, err := d.StrBytes()
+	if err != nil {
+		return err
+	}
+	// Try to use constant string.
+	switch PostStatus(v) {
+	case PostStatusDraft:
+		*s = PostStatusDraft
+	case PostStatusPublished:
+		*s = PostStatusPublished
+	default:
+		*s = PostStatus(v)
+	}
+
+	return nil
+}
+
+// MarshalJSON implements stdjson.Marshaler.
+func (s PostStatus) MarshalJSON() ([]byte, error) {
+	e := jx.Encoder{}
+	s.Encode(&e)
+	return e.Bytes(), nil
+}
+
+// UnmarshalJSON implements stdjson.Unmarshaler.
+func (s *PostStatus) UnmarshalJSON(data []byte) error {
 	d := jx.DecodeBytes(data)
 	return s.Decode(d)
 }
