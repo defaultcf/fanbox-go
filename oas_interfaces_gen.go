@@ -5,6 +5,10 @@ type CreatePostRes interface {
 	createPostRes()
 }
 
+type DeletePostRes interface {
+	deletePostRes()
+}
+
 type GetEditablePostRes interface {
 	getEditablePostRes()
 }

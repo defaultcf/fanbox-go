@@ -7,6 +7,11 @@ type CreatePostParams struct {
 	Origin string
 }
 
+// DeletePostParams is parameters of deletePost operation.
+type DeletePostParams struct {
+	Origin string
+}
+
 // GetEditablePostParams is parameters of getEditablePost operation.
 type GetEditablePostParams struct {
 	Origin string

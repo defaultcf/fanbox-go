@@ -23,6 +23,12 @@ type Invoker interface {
 	//
 	// POST /post.create
 	CreatePost(ctx context.Context, request OptCreatePostReq, params CreatePostParams) (CreatePostRes, error)
+	// DeletePost invokes deletePost operation.
+	//
+	// Delete post.
+	//
+	// POST /post.delete
+	DeletePost(ctx context.Context, request OptDeletePostReq, params DeletePostParams) (DeletePostRes, error)
 	// GetEditablePost invokes getEditablePost operation.
 	//
 	// Get post.
@@ -178,6 +184,102 @@ func (c *Client) sendCreatePost(ctx context.Context, request OptCreatePostReq, p
 	defer resp.Body.Close()
 
 	result, err := decodeCreatePostResponse(resp)
+	if err != nil {
+		return res, errors.Wrap(err, "decode response")
+	}
+
+	return result, nil
+}
+
+// DeletePost invokes deletePost operation.
+//
+// Delete post.
+//
+// POST /post.delete
+func (c *Client) DeletePost(ctx context.Context, request OptDeletePostReq, params DeletePostParams) (DeletePostRes, error) {
+	res, err := c.sendDeletePost(ctx, request, params)
+	return res, err
+}
+
+func (c *Client) sendDeletePost(ctx context.Context, request OptDeletePostReq, params DeletePostParams) (res DeletePostRes, err error) {
+
+	u := uri.Clone(c.requestURL(ctx))
+	var pathParts [1]string
+	pathParts[0] = "/post.delete"
+	uri.AddPathParts(u, pathParts[:]...)
+
+	r, err := ht.NewRequest(ctx, "POST", u)
+	if err != nil {
+		return res, errors.Wrap(err, "create request")
+	}
+	if err := encodeDeletePostRequest(request, r); err != nil {
+		return res, errors.Wrap(err, "encode request")
+	}
+
+	h := uri.NewHeaderEncoder(r.Header)
+	{
+		cfg := uri.HeaderParameterEncodingConfig{
+			Name:    "Origin",
+			Explode: false,
+		}
+		if err := h.EncodeParam(cfg, func(e uri.Encoder) error {
+			return e.EncodeValue(conv.StringToString(params.Origin))
+		}); err != nil {
+			return res, errors.Wrap(err, "encode header")
+		}
+	}
+
+	{
+		type bitset = [1]uint8
+		var satisfied bitset
+		{
+
+			switch err := c.securityCsrfToken(ctx, "DeletePost", r); {
+			case err == nil: // if NO error
+				satisfied[0] |= 1 << 0
+			case errors.Is(err, ogenerrors.ErrSkipClientSecurity):
+				// Skip this security.
+			default:
+				return res, errors.Wrap(err, "security \"CsrfToken\"")
+			}
+		}
+		{
+
+			switch err := c.securitySessionId(ctx, "DeletePost", r); {
+			case err == nil: // if NO error
+				satisfied[0] |= 1 << 1
+			case errors.Is(err, ogenerrors.ErrSkipClientSecurity):
+				// Skip this security.
+			default:
+				return res, errors.Wrap(err, "security \"SessionId\"")
+			}
+		}
+
+		if ok := func() bool {
+		nextRequirement:
+			for _, requirement := range []bitset{
+				{0b00000011},
+			} {
+				for i, mask := range requirement {
+					if satisfied[i]&mask != mask {
+						continue nextRequirement
+					}
+				}
+				return true
+			}
+			return false
+		}(); !ok {
+			return res, ogenerrors.ErrSecurityRequirementIsNotSatisfied
+		}
+	}
+
+	resp, err := c.cfg.Client.Do(r)
+	if err != nil {
+		return res, errors.Wrap(err, "do request")
+	}
+	defer resp.Body.Close()
+
+	result, err := decodeDeletePostResponse(resp)
 	if err != nil {
 		return res, errors.Wrap(err, "decode response")
 	}

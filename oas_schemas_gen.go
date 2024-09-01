@@ -40,6 +40,7 @@ func (s *CreateBody) SetPostId(val OptString) {
 type CreatePostBadRequestApplicationJSON jx.Raw
 
 func (*CreatePostBadRequestApplicationJSON) createPostRes()       {}
+func (*CreatePostBadRequestApplicationJSON) deletePostRes()       {}
 func (*CreatePostBadRequestApplicationJSON) getEditablePostRes()  {}
 func (*CreatePostBadRequestApplicationJSON) listManagedPostsRes() {}
 func (*CreatePostBadRequestApplicationJSON) updatePostRes()       {}
@@ -104,6 +105,36 @@ func (s *CsrfToken) GetAPIKey() string {
 // SetAPIKey sets the value of APIKey.
 func (s *CsrfToken) SetAPIKey(val string) {
 	s.APIKey = val
+}
+
+type Delete struct {
+	Body OptNull `json:"body"`
+}
+
+// GetBody returns the value of Body.
+func (s *Delete) GetBody() OptNull {
+	return s.Body
+}
+
+// SetBody sets the value of Body.
+func (s *Delete) SetBody(val OptNull) {
+	s.Body = val
+}
+
+func (*Delete) deletePostRes() {}
+
+type DeletePostReq struct {
+	PostId string `json:"postId"`
+}
+
+// GetPostId returns the value of PostId.
+func (s *DeletePostReq) GetPostId() string {
+	return s.PostId
+}
+
+// SetPostId sets the value of PostId.
+func (s *DeletePostReq) SetPostId(val string) {
+	s.PostId = val
 }
 
 type Get struct {
@@ -230,6 +261,52 @@ func (o OptCreatePostReq) Or(d CreatePostReq) CreatePostReq {
 	return d
 }
 
+// NewOptDeletePostReq returns new OptDeletePostReq with value set to v.
+func NewOptDeletePostReq(v DeletePostReq) OptDeletePostReq {
+	return OptDeletePostReq{
+		Value: v,
+		Set:   true,
+	}
+}
+
+// OptDeletePostReq is optional DeletePostReq.
+type OptDeletePostReq struct {
+	Value DeletePostReq
+	Set   bool
+}
+
+// IsSet returns true if OptDeletePostReq was set.
+func (o OptDeletePostReq) IsSet() bool { return o.Set }
+
+// Reset unsets value.
+func (o *OptDeletePostReq) Reset() {
+	var v DeletePostReq
+	o.Value = v
+	o.Set = false
+}
+
+// SetTo sets value to v.
+func (o *OptDeletePostReq) SetTo(v DeletePostReq) {
+	o.Set = true
+	o.Value = v
+}
+
+// Get returns value and boolean that denotes whether value was set.
+func (o OptDeletePostReq) Get() (v DeletePostReq, ok bool) {
+	if !o.Set {
+		return v, false
+	}
+	return o.Value, true
+}
+
+// Or returns value if set, or given parameter if does not.
+func (o OptDeletePostReq) Or(d DeletePostReq) DeletePostReq {
+	if v, ok := o.Get(); ok {
+		return v
+	}
+	return d
+}
+
 // NewOptInt returns new OptInt with value set to v.
 func NewOptInt(v int) OptInt {
 	return OptInt{
@@ -270,6 +347,52 @@ func (o OptInt) Get() (v int, ok bool) {
 
 // Or returns value if set, or given parameter if does not.
 func (o OptInt) Or(d int) int {
+	if v, ok := o.Get(); ok {
+		return v
+	}
+	return d
+}
+
+// NewOptNull returns new OptNull with value set to v.
+func NewOptNull(v struct{}) OptNull {
+	return OptNull{
+		Value: v,
+		Set:   true,
+	}
+}
+
+// OptNull is optional struct{}.
+type OptNull struct {
+	Value struct{}
+	Set   bool
+}
+
+// IsSet returns true if OptNull was set.
+func (o OptNull) IsSet() bool { return o.Set }
+
+// Reset unsets value.
+func (o *OptNull) Reset() {
+	var v struct{}
+	o.Value = v
+	o.Set = false
+}
+
+// SetTo sets value to v.
+func (o *OptNull) SetTo(v struct{}) {
+	o.Set = true
+	o.Value = v
+}
+
+// Get returns value and boolean that denotes whether value was set.
+func (o OptNull) Get() (v struct{}, ok bool) {
+	if !o.Set {
+		return v, false
+	}
+	return o.Value, true
+}
+
+// Or returns value if set, or given parameter if does not.
+func (o OptNull) Or(d struct{}) struct{} {
 	if v, ok := o.Get(); ok {
 		return v
 	}
