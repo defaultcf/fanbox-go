@@ -132,6 +132,17 @@ func (c *Client) sendCreatePost(ctx context.Context, request OptCreatePostReq, p
 			return res, errors.Wrap(err, "encode header")
 		}
 	}
+	{
+		cfg := uri.HeaderParameterEncodingConfig{
+			Name:    "User-Agent",
+			Explode: false,
+		}
+		if err := h.EncodeParam(cfg, func(e uri.Encoder) error {
+			return e.EncodeValue(conv.StringToString(params.UserAgent))
+		}); err != nil {
+			return res, errors.Wrap(err, "encode header")
+		}
+	}
 
 	{
 		type bitset = [1]uint8
@@ -224,6 +235,17 @@ func (c *Client) sendDeletePost(ctx context.Context, request OptDeletePostReq, p
 		}
 		if err := h.EncodeParam(cfg, func(e uri.Encoder) error {
 			return e.EncodeValue(conv.StringToString(params.Origin))
+		}); err != nil {
+			return res, errors.Wrap(err, "encode header")
+		}
+	}
+	{
+		cfg := uri.HeaderParameterEncodingConfig{
+			Name:    "User-Agent",
+			Explode: false,
+		}
+		if err := h.EncodeParam(cfg, func(e uri.Encoder) error {
+			return e.EncodeValue(conv.StringToString(params.UserAgent))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode header")
 		}
@@ -338,6 +360,17 @@ func (c *Client) sendGetEditablePost(ctx context.Context, params GetEditablePost
 			return res, errors.Wrap(err, "encode header")
 		}
 	}
+	{
+		cfg := uri.HeaderParameterEncodingConfig{
+			Name:    "User-Agent",
+			Explode: false,
+		}
+		if err := h.EncodeParam(cfg, func(e uri.Encoder) error {
+			return e.EncodeValue(conv.StringToString(params.UserAgent))
+		}); err != nil {
+			return res, errors.Wrap(err, "encode header")
+		}
+	}
 
 	{
 		type bitset = [1]uint8
@@ -416,6 +449,17 @@ func (c *Client) sendListManagedPosts(ctx context.Context, params ListManagedPos
 		}
 		if err := h.EncodeParam(cfg, func(e uri.Encoder) error {
 			return e.EncodeValue(conv.StringToString(params.Origin))
+		}); err != nil {
+			return res, errors.Wrap(err, "encode header")
+		}
+	}
+	{
+		cfg := uri.HeaderParameterEncodingConfig{
+			Name:    "User-Agent",
+			Explode: false,
+		}
+		if err := h.EncodeParam(cfg, func(e uri.Encoder) error {
+			return e.EncodeValue(conv.StringToString(params.UserAgent))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode header")
 		}
@@ -501,6 +545,17 @@ func (c *Client) sendUpdatePost(ctx context.Context, request OptUpdatePostReq, p
 		}
 		if err := h.EncodeParam(cfg, func(e uri.Encoder) error {
 			return e.EncodeValue(conv.StringToString(params.Origin))
+		}); err != nil {
+			return res, errors.Wrap(err, "encode header")
+		}
+	}
+	{
+		cfg := uri.HeaderParameterEncodingConfig{
+			Name:    "User-Agent",
+			Explode: false,
+		}
+		if err := h.EncodeParam(cfg, func(e uri.Encoder) error {
+			return e.EncodeValue(conv.StringToString(params.UserAgent))
 		}); err != nil {
 			return res, errors.Wrap(err, "encode header")
 		}
