@@ -27,3 +27,7 @@ changelog:
     exclude:
       - "^docs:"
       - "^test:"
+
+release:
+  header: |
+    Actual changelog is here → https://github.com/defaultcf/fanbox-specification/releases/tag/{{ .Tag }}
