@@ -841,6 +841,39 @@ func (s *OptPostBody) UnmarshalJSON(data []byte) error {
 	return s.Decode(d)
 }
 
+// Encode encodes PostBodyBlocksItemStylesItemType as json.
+func (o OptPostBodyBlocksItemStylesItemType) Encode(e *jx.Encoder) {
+	if !o.Set {
+		return
+	}
+	e.Str(string(o.Value))
+}
+
+// Decode decodes PostBodyBlocksItemStylesItemType from json.
+func (o *OptPostBodyBlocksItemStylesItemType) Decode(d *jx.Decoder) error {
+	if o == nil {
+		return errors.New("invalid: unable to decode OptPostBodyBlocksItemStylesItemType to nil")
+	}
+	o.Set = true
+	if err := o.Value.Decode(d); err != nil {
+		return err
+	}
+	return nil
+}
+
+// MarshalJSON implements stdjson.Marshaler.
+func (s OptPostBodyBlocksItemStylesItemType) MarshalJSON() ([]byte, error) {
+	e := jx.Encoder{}
+	s.Encode(&e)
+	return e.Bytes(), nil
+}
+
+// UnmarshalJSON implements stdjson.Unmarshaler.
+func (s *OptPostBodyBlocksItemStylesItemType) UnmarshalJSON(data []byte) error {
+	d := jx.DecodeBytes(data)
+	return s.Decode(d)
+}
+
 // Encode encodes PostBodyBlocksItemType as json.
 func (o OptPostBodyBlocksItemType) Encode(e *jx.Encoder) {
 	if !o.Set {
@@ -1601,6 +1634,44 @@ func (s *PostBodyBlocksItemStylesItem) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON implements stdjson.Unmarshaler.
 func (s *PostBodyBlocksItemStylesItem) UnmarshalJSON(data []byte) error {
+	d := jx.DecodeBytes(data)
+	return s.Decode(d)
+}
+
+// Encode encodes PostBodyBlocksItemStylesItemType as json.
+func (s PostBodyBlocksItemStylesItemType) Encode(e *jx.Encoder) {
+	e.Str(string(s))
+}
+
+// Decode decodes PostBodyBlocksItemStylesItemType from json.
+func (s *PostBodyBlocksItemStylesItemType) Decode(d *jx.Decoder) error {
+	if s == nil {
+		return errors.New("invalid: unable to decode PostBodyBlocksItemStylesItemType to nil")
+	}
+	v, err := d.StrBytes()
+	if err != nil {
+		return err
+	}
+	// Try to use constant string.
+	switch PostBodyBlocksItemStylesItemType(v) {
+	case PostBodyBlocksItemStylesItemTypeBold:
+		*s = PostBodyBlocksItemStylesItemTypeBold
+	default:
+		*s = PostBodyBlocksItemStylesItemType(v)
+	}
+
+	return nil
+}
+
+// MarshalJSON implements stdjson.Marshaler.
+func (s PostBodyBlocksItemStylesItemType) MarshalJSON() ([]byte, error) {
+	e := jx.Encoder{}
+	s.Encode(&e)
+	return e.Bytes(), nil
+}
+
+// UnmarshalJSON implements stdjson.Unmarshaler.
+func (s *PostBodyBlocksItemStylesItemType) UnmarshalJSON(data []byte) error {
 	d := jx.DecodeBytes(data)
 	return s.Decode(d)
 }

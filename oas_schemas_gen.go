@@ -491,6 +491,52 @@ func (o OptPostBody) Or(d PostBody) PostBody {
 	return d
 }
 
+// NewOptPostBodyBlocksItemStylesItemType returns new OptPostBodyBlocksItemStylesItemType with value set to v.
+func NewOptPostBodyBlocksItemStylesItemType(v PostBodyBlocksItemStylesItemType) OptPostBodyBlocksItemStylesItemType {
+	return OptPostBodyBlocksItemStylesItemType{
+		Value: v,
+		Set:   true,
+	}
+}
+
+// OptPostBodyBlocksItemStylesItemType is optional PostBodyBlocksItemStylesItemType.
+type OptPostBodyBlocksItemStylesItemType struct {
+	Value PostBodyBlocksItemStylesItemType
+	Set   bool
+}
+
+// IsSet returns true if OptPostBodyBlocksItemStylesItemType was set.
+func (o OptPostBodyBlocksItemStylesItemType) IsSet() bool { return o.Set }
+
+// Reset unsets value.
+func (o *OptPostBodyBlocksItemStylesItemType) Reset() {
+	var v PostBodyBlocksItemStylesItemType
+	o.Value = v
+	o.Set = false
+}
+
+// SetTo sets value to v.
+func (o *OptPostBodyBlocksItemStylesItemType) SetTo(v PostBodyBlocksItemStylesItemType) {
+	o.Set = true
+	o.Value = v
+}
+
+// Get returns value and boolean that denotes whether value was set.
+func (o OptPostBodyBlocksItemStylesItemType) Get() (v PostBodyBlocksItemStylesItemType, ok bool) {
+	if !o.Set {
+		return v, false
+	}
+	return o.Value, true
+}
+
+// Or returns value if set, or given parameter if does not.
+func (o OptPostBodyBlocksItemStylesItemType) Or(d PostBodyBlocksItemStylesItemType) PostBodyBlocksItemStylesItemType {
+	if v, ok := o.Get(); ok {
+		return v
+	}
+	return d
+}
+
 // NewOptPostBodyBlocksItemType returns new OptPostBodyBlocksItemType with value set to v.
 func NewOptPostBodyBlocksItemType(v PostBodyBlocksItemType) OptPostBodyBlocksItemType {
 	return OptPostBodyBlocksItemType{
@@ -1092,13 +1138,13 @@ func (s *PostBodyBlocksItem) SetStyles(val []PostBodyBlocksItemStylesItem) {
 }
 
 type PostBodyBlocksItemStylesItem struct {
-	Type   OptString `json:"type"`
-	Offset OptInt    `json:"offset"`
-	Length OptInt    `json:"length"`
+	Type   OptPostBodyBlocksItemStylesItemType `json:"type"`
+	Offset OptInt                              `json:"offset"`
+	Length OptInt                              `json:"length"`
 }
 
 // GetType returns the value of Type.
-func (s *PostBodyBlocksItemStylesItem) GetType() OptString {
+func (s *PostBodyBlocksItemStylesItem) GetType() OptPostBodyBlocksItemStylesItemType {
 	return s.Type
 }
 
@@ -1113,7 +1159,7 @@ func (s *PostBodyBlocksItemStylesItem) GetLength() OptInt {
 }
 
 // SetType sets the value of Type.
-func (s *PostBodyBlocksItemStylesItem) SetType(val OptString) {
+func (s *PostBodyBlocksItemStylesItem) SetType(val OptPostBodyBlocksItemStylesItemType) {
 	s.Type = val
 }
 
@@ -1125,6 +1171,40 @@ func (s *PostBodyBlocksItemStylesItem) SetOffset(val OptInt) {
 // SetLength sets the value of Length.
 func (s *PostBodyBlocksItemStylesItem) SetLength(val OptInt) {
 	s.Length = val
+}
+
+type PostBodyBlocksItemStylesItemType string
+
+const (
+	PostBodyBlocksItemStylesItemTypeBold PostBodyBlocksItemStylesItemType = "bold"
+)
+
+// AllValues returns all PostBodyBlocksItemStylesItemType values.
+func (PostBodyBlocksItemStylesItemType) AllValues() []PostBodyBlocksItemStylesItemType {
+	return []PostBodyBlocksItemStylesItemType{
+		PostBodyBlocksItemStylesItemTypeBold,
+	}
+}
+
+// MarshalText implements encoding.TextMarshaler.
+func (s PostBodyBlocksItemStylesItemType) MarshalText() ([]byte, error) {
+	switch s {
+	case PostBodyBlocksItemStylesItemTypeBold:
+		return []byte(s), nil
+	default:
+		return nil, errors.Errorf("invalid value: %q", s)
+	}
+}
+
+// UnmarshalText implements encoding.TextUnmarshaler.
+func (s *PostBodyBlocksItemStylesItemType) UnmarshalText(data []byte) error {
+	switch PostBodyBlocksItemStylesItemType(data) {
+	case PostBodyBlocksItemStylesItemTypeBold:
+		*s = PostBodyBlocksItemStylesItemTypeBold
+		return nil
+	default:
+		return errors.Errorf("invalid value: %q", data)
+	}
 }
 
 type PostBodyBlocksItemType string
