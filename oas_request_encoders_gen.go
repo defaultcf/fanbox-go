@@ -133,6 +133,22 @@ func encodeUpdatePostRequest(
 		}
 	}
 	{
+		// Encode "commentingPermissionScope" form field.
+		cfg := uri.QueryParameterEncodingConfig{
+			Name:    "commentingPermissionScope",
+			Style:   uri.QueryStyleForm,
+			Explode: true,
+		}
+		if err := q.EncodeParam(cfg, func(e uri.Encoder) error {
+			if val, ok := request.CommentingPermissionScope.Get(); ok {
+				return e.EncodeValue(conv.StringToString(string(val)))
+			}
+			return nil
+		}); err != nil {
+			return errors.Wrap(err, "encode query")
+		}
+	}
+	{
 		// Encode "body" form field.
 		cfg := uri.QueryParameterEncodingConfig{
 			Name:    "body",

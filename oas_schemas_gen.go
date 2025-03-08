@@ -905,6 +905,52 @@ func (o OptUpdatePostReq) Or(d UpdatePostReq) UpdatePostReq {
 	return d
 }
 
+// NewOptUpdatePostReqCommentingPermissionScope returns new OptUpdatePostReqCommentingPermissionScope with value set to v.
+func NewOptUpdatePostReqCommentingPermissionScope(v UpdatePostReqCommentingPermissionScope) OptUpdatePostReqCommentingPermissionScope {
+	return OptUpdatePostReqCommentingPermissionScope{
+		Value: v,
+		Set:   true,
+	}
+}
+
+// OptUpdatePostReqCommentingPermissionScope is optional UpdatePostReqCommentingPermissionScope.
+type OptUpdatePostReqCommentingPermissionScope struct {
+	Value UpdatePostReqCommentingPermissionScope
+	Set   bool
+}
+
+// IsSet returns true if OptUpdatePostReqCommentingPermissionScope was set.
+func (o OptUpdatePostReqCommentingPermissionScope) IsSet() bool { return o.Set }
+
+// Reset unsets value.
+func (o *OptUpdatePostReqCommentingPermissionScope) Reset() {
+	var v UpdatePostReqCommentingPermissionScope
+	o.Value = v
+	o.Set = false
+}
+
+// SetTo sets value to v.
+func (o *OptUpdatePostReqCommentingPermissionScope) SetTo(v UpdatePostReqCommentingPermissionScope) {
+	o.Set = true
+	o.Value = v
+}
+
+// Get returns value and boolean that denotes whether value was set.
+func (o OptUpdatePostReqCommentingPermissionScope) Get() (v UpdatePostReqCommentingPermissionScope, ok bool) {
+	if !o.Set {
+		return v, false
+	}
+	return o.Value, true
+}
+
+// Or returns value if set, or given parameter if does not.
+func (o OptUpdatePostReqCommentingPermissionScope) Or(d UpdatePostReqCommentingPermissionScope) UpdatePostReqCommentingPermissionScope {
+	if v, ok := o.Get(); ok {
+		return v
+	}
+	return d
+}
+
 // NewOptUpdatePostReqStatus returns new OptUpdatePostReqStatus with value set to v.
 func NewOptUpdatePostReqStatus(v UpdatePostReqStatus) OptUpdatePostReqStatus {
 	return OptUpdatePostReqStatus{
@@ -1541,13 +1587,14 @@ func (s *Update) SetBody(val OptPost) {
 func (*Update) updatePostRes() {}
 
 type UpdatePostReq struct {
-	PostId      OptString              `json:"postId"`
-	Status      OptUpdatePostReqStatus `json:"status"`
-	FeeRequired OptString              `json:"feeRequired"`
-	Title       OptString              `json:"title"`
-	Body        OptString              `json:"body"`
-	Tags        []string               `json:"tags"`
-	Tt          OptString              `json:"tt"`
+	PostId                    OptString                                 `json:"postId"`
+	Status                    OptUpdatePostReqStatus                    `json:"status"`
+	FeeRequired               OptString                                 `json:"feeRequired"`
+	Title                     OptString                                 `json:"title"`
+	CommentingPermissionScope OptUpdatePostReqCommentingPermissionScope `json:"commentingPermissionScope"`
+	Body                      OptString                                 `json:"body"`
+	Tags                      []string                                  `json:"tags"`
+	Tt                        OptString                                 `json:"tt"`
 }
 
 // GetPostId returns the value of PostId.
@@ -1568,6 +1615,11 @@ func (s *UpdatePostReq) GetFeeRequired() OptString {
 // GetTitle returns the value of Title.
 func (s *UpdatePostReq) GetTitle() OptString {
 	return s.Title
+}
+
+// GetCommentingPermissionScope returns the value of CommentingPermissionScope.
+func (s *UpdatePostReq) GetCommentingPermissionScope() OptUpdatePostReqCommentingPermissionScope {
+	return s.CommentingPermissionScope
 }
 
 // GetBody returns the value of Body.
@@ -1605,6 +1657,11 @@ func (s *UpdatePostReq) SetTitle(val OptString) {
 	s.Title = val
 }
 
+// SetCommentingPermissionScope sets the value of CommentingPermissionScope.
+func (s *UpdatePostReq) SetCommentingPermissionScope(val OptUpdatePostReqCommentingPermissionScope) {
+	s.CommentingPermissionScope = val
+}
+
 // SetBody sets the value of Body.
 func (s *UpdatePostReq) SetBody(val OptString) {
 	s.Body = val
@@ -1618,6 +1675,54 @@ func (s *UpdatePostReq) SetTags(val []string) {
 // SetTt sets the value of Tt.
 func (s *UpdatePostReq) SetTt(val OptString) {
 	s.Tt = val
+}
+
+type UpdatePostReqCommentingPermissionScope string
+
+const (
+	UpdatePostReqCommentingPermissionScopeEveryone   UpdatePostReqCommentingPermissionScope = "everyone"
+	UpdatePostReqCommentingPermissionScopeSupporters UpdatePostReqCommentingPermissionScope = "supporters"
+	UpdatePostReqCommentingPermissionScopeNone       UpdatePostReqCommentingPermissionScope = "none"
+)
+
+// AllValues returns all UpdatePostReqCommentingPermissionScope values.
+func (UpdatePostReqCommentingPermissionScope) AllValues() []UpdatePostReqCommentingPermissionScope {
+	return []UpdatePostReqCommentingPermissionScope{
+		UpdatePostReqCommentingPermissionScopeEveryone,
+		UpdatePostReqCommentingPermissionScopeSupporters,
+		UpdatePostReqCommentingPermissionScopeNone,
+	}
+}
+
+// MarshalText implements encoding.TextMarshaler.
+func (s UpdatePostReqCommentingPermissionScope) MarshalText() ([]byte, error) {
+	switch s {
+	case UpdatePostReqCommentingPermissionScopeEveryone:
+		return []byte(s), nil
+	case UpdatePostReqCommentingPermissionScopeSupporters:
+		return []byte(s), nil
+	case UpdatePostReqCommentingPermissionScopeNone:
+		return []byte(s), nil
+	default:
+		return nil, errors.Errorf("invalid value: %q", s)
+	}
+}
+
+// UnmarshalText implements encoding.TextUnmarshaler.
+func (s *UpdatePostReqCommentingPermissionScope) UnmarshalText(data []byte) error {
+	switch UpdatePostReqCommentingPermissionScope(data) {
+	case UpdatePostReqCommentingPermissionScopeEveryone:
+		*s = UpdatePostReqCommentingPermissionScopeEveryone
+		return nil
+	case UpdatePostReqCommentingPermissionScopeSupporters:
+		*s = UpdatePostReqCommentingPermissionScopeSupporters
+		return nil
+	case UpdatePostReqCommentingPermissionScopeNone:
+		*s = UpdatePostReqCommentingPermissionScopeNone
+		return nil
+	default:
+		return errors.Errorf("invalid value: %q", data)
+	}
 }
 
 type UpdatePostReqStatus string
