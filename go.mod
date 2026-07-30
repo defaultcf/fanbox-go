@@ -3,7 +3,7 @@ module github.com/defaultcf/fanbox-go
 go 1.23.0
 
 require (
-	github.com/go-faster/errors v0.7.1
+	github.com/go-faster/errors v0.8.0
 	github.com/go-faster/jx v1.1.0
 	github.com/ogen-go/ogen v1.3.0
 )
